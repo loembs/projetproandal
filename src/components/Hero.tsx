@@ -19,7 +19,7 @@ export const Hero = () => {
             poster="/placeholder.svg"
           >
             {/* You'll need to replace this with your actual video file */}
-            <source src="../../public/images/blog.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1751068418/blog_fpyxrs.mp4" type="video/mp4" />
             <source src="/your-video.webm" type="video/webm" />
           </video>
         </div>
