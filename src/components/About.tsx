@@ -15,7 +15,7 @@ export const About = () => {
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed mb-8">
                 <strong className="text-blue-600">Andal Creative</strong> est une agence fondée par 
-                <strong className="text-yellow-500"> Mourzanatou Ousmanou</strong>, experte en marketing digital 
+                <strong className="text-yellow-500"> Mourzane Ousmanou</strong>, experte en marketing digital 
                 et en production de contenu avec plusieurs années d'expérience et des diplômes reconnus dans le domaine.
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
