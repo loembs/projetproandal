@@ -41,7 +41,7 @@ export const About = () => {
                   <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
                     <span className="text-white text-4xl font-bold">MO</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-black mb-2">Mourzanatou Ousmanou</h3>
+                  <h3 className="text-2xl font-semibold text-black mb-2">Mourzane Ousmanou</h3>
                   <p className="text-blue-600 font-medium text-lg">Fondatrice & Directrice Créative</p>
                 </div>
               </div>
