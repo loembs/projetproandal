@@ -130,7 +130,7 @@ export const CarouselConfiance = () => {
             {logos.map((logo, idx) => (
               <CarouselItem key={idx} className="flex justify-center py-8">
                 <div className="flex flex-col items-center bg-white rounded-xl shadow-lg p-8 transition-transform hover:scale-105 border border-gray-100 w-80 mx-auto">
-                  <img src={logo.src} alt={logo.name} className="h-44 w-44 object-contain mb-6 transition duration-300 rounded-lg shadow-md" />
+                  <img src={logo.src} alt={logo.name} className="h-44 w-44 object-contain mb-6 transition duration-300 rounded-lg shadow-md transform hover:scale-110" />
                   <span className="mt-2 text-xl font-semibold text-gray-700 text-center drop-shadow-sm">{logo.name}</span>
                 </div>
               </CarouselItem>

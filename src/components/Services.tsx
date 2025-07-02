@@ -4,7 +4,8 @@ import {
   Smartphone, 
   Camera, 
   Calendar, 
-  ArrowRight
+  ArrowRight,
+  Code
 } from "lucide-react";
 
 export const Services = () => {
@@ -26,6 +27,12 @@ export const Services = () => {
       icon: Calendar,
       description: "Événements d'entreprise, lancements de produit, conférences et événements corporate sur-mesure",
       features: ["Événements corporate", "Lancement produit", "Conférences", "Sur-mesure"]
+    },
+    {
+      title: "Développement web",
+      icon: Code,
+      description: "Création de sites web modernes, accompagnement digital sur-mesure et solutions adaptées à vos besoins pour booster votre présence en ligne.",
+      features: ["Sites vitrines & e-commerce", "Applications web sur-mesure", "Refonte & optimisation", "Accompagnement digital"]
     }
   ];
 
@@ -44,40 +51,70 @@ export const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card 
-              key={index}
-              className="bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group h-full"
-            >
-              <CardContent className="p-8 text-center h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-black mb-4">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
-                  {service.description}
-                </p>
-                
-                <div className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="text-sm text-gray-500">
-                      • {feature}
-                    </div>
-                  ))}
-                </div>
-                
-                <Button 
-                  variant="outline"
-                  className="w-full border-black text-black hover:bg-black hover:text-white transition-all duration-300"
+            (service.title === "Développement web") ? (
+              <div key={index} className="col-span-1 md:col-span-3 flex justify-center">
+                <Card 
+                  className="bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group h-full max-w-md mx-auto"
                 >
-                  En savoir plus
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </CardContent>
-            </Card>
+                  <CardContent className="p-8 text-center h-full flex flex-col">
+                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-black mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                      {service.description}
+                    </p>
+                    <div className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="text-sm text-gray-500">
+                          • {feature}
+                        </div>
+                      ))}
+                    </div>
+                    <Button 
+                      variant="outline"
+                      className="w-full border-black text-black hover:bg-black hover:text-white transition-all duration-300"
+                    >
+                      En savoir plus
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            ) : (
+              <Card 
+                key={index}
+                className="bg-white border-0 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 group h-full"
+              >
+                <CardContent className="p-8 text-center h-full flex flex-col">
+                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-black mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-6 flex-grow">
+                    {service.description}
+                  </p>
+                  <div className="space-y-2 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <div key={idx} className="text-sm text-gray-500">
+                        • {feature}
+                      </div>
+                    ))}
+                  </div>
+                  <Button 
+                    variant="outline"
+                    className="w-full border-black text-black hover:bg-black hover:text-white transition-all duration-300"
+                  >
+                    En savoir plus
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </CardContent>
+              </Card>
+            )
           ))}
         </div>
 
