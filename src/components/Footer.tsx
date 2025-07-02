@@ -21,28 +21,34 @@ export const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <Button 
+                asChild
                 variant="outline" 
                 size="sm"
                 className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
               >
-                <Instagram className="w-4 h-4 mr-2" />
-                Instagram
+                <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-4 h-4 mr-2" /> Cameroun
+                </a>
               </Button>
               <Button 
+                asChild
                 variant="outline" 
                 size="sm"
-                className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white"
+                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
               >
-                <Linkedin className="w-4 h-4 mr-2" />
-                LinkedIn
+                <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-4 h-4 mr-2" /> Sénégal
+                </a>
               </Button>
               <Button 
+                asChild
                 variant="outline" 
                 size="sm"
-                className="border-white text-white hover:bg-white hover:text-black"
+                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
               >
-                <Facebook className="w-4 h-4 mr-2" />
-                Facebook
+                <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-4 h-4 mr-2" /> Côte d'Ivoire
+                </a>
               </Button>
             </div>
           </div>
@@ -62,7 +68,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 text-white">Contact</h4>
             <ul className="space-y-3 text-gray-300">
-              <li>+221 XX XXX XX XX</li>
+              <li>+221 782800808</li>
               <li>contact@andalcreative.com</li>
               <li>Dakar, Sénégal</li>
             </ul>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Award, Users, Target } from "lucide-react";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 
 export const About = () => {
   return (
@@ -23,12 +24,25 @@ export const About = () => {
               </p>
             </div>
 
-            <Button 
-              size="lg"
-              className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold"
-            >
-              En savoir plus
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  size="lg"
+                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold"
+                >
+                  En savoir plus
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-3xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center min-h-[70vh]">
+                <iframe
+                  src="/images/ANDAL CREATIVE PRESENTATION.pdf"
+                  title="Présentation Andal Creative"
+                  className="w-full h-[70vh] rounded-xl shadow-2xl bg-white"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                />
+              </DialogContent>
+            </Dialog>
           </div>
 
           {/* Image Side */}

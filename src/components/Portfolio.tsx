@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "./ui/carousel";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 
 const logos = [
   { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461621/t%C3%A9l%C3%A9chargement_onismw.png", name: "Betclic" },
@@ -59,20 +60,34 @@ export const Portfolio = () => {
               className="group overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 border-0"
             >
               <div className="relative overflow-hidden">
-                <img 
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+                    />
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center">
+                    <img src={project.image} alt={project.title} className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-2xl" />
+                  </DialogContent>
+                </Dialog>
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button 
-                    variant="secondary" 
-                    size="sm"
-                    className="bg-white text-black hover:bg-gray-100"
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Voir le projet
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="secondary" 
+                        size="sm"
+                        className="bg-white text-black hover:bg-gray-100"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Voir plus
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center">
+                      <img src={project.image} alt={project.title} className="w-full h-auto max-h-[80vh] object-contain rounded-xl shadow-2xl" />
+                    </DialogContent>
+                  </Dialog>
                 </div>
                 <div className="absolute top-4 left-4 px-3 py-1 bg-yellow-400 text-black text-sm font-semibold rounded-full">
                   {project.category}

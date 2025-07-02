@@ -83,6 +83,24 @@ const Studio = () => {
           </div>
         </div>
       </section>
+      <footer className="bg-black text-white mt-16">
+        <div className="container mx-auto px-6 py-10 flex flex-col items-center">
+          <div className="mb-4">
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+            >
+              <a href="https://www.instagram.com/andal.creative.studio/" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 mr-2 inline"><path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9A4.5 4.5 0 0 1 16.5 21h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Zm0 0V2.25m9 0V3m-9 0a4.5 4.5 0 0 0-4.5 4.5m13.5-4.5a4.5 4.5 0 0 1 4.5 4.5m0 0V21m0 0H2.25m0 0V7.5m0 13.5A4.5 4.5 0 0 0 7.5 21m9 0a4.5 4.5 0 0 0 4.5-4.5" /></svg>
+                Instagram du Studio
+              </a>
+            </Button>
+          </div>
+          <div className="text-gray-400 text-sm">© 2024 Andal Creative Studio</div>
+        </div>
+      </footer>
     </div>
   );
 };

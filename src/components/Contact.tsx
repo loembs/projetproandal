@@ -28,7 +28,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-black">Téléphone</h3>
-                  <p className="text-gray-600">+221 XX XXX XX XX</p>
+                  <p className="text-gray-600">+221 782800808</p>
                 </div>
               </div>
               
