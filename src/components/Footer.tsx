@@ -17,7 +17,7 @@ export const Footer = () => {
             </h3>
             <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg">
               Votre partenaire créatif pour transformer votre vision en réalité digitale. 
-              Nous accompagnons les entreprises sénégalaises vers l'excellence.
+              Nous vous accompagnons vers l'excellence.
             </p>
             <div className="flex space-x-4">
               <Button 

@@ -33,7 +33,7 @@ export const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-          Créativité & Innovation pour les entreprises sénégalaises
+          Créativité & Innovation pour tous vos projets
         </p>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -41,17 +41,17 @@ export const Hero = () => {
             size="lg" 
             className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 text-lg font-semibold transition-all duration-300"
           >
-            Découvrir nos services
+            <a href="#services"> Découvrir nos services</a>
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-          
+        
           <Button 
             variant="outline" 
             size="lg"
-            className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold transition-all duration-300"
+            className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 text-lg font-semibold transition-all duration-300"
+            asChild
           >
-            <Play className="mr-2 w-5 h-5" />
-            Voir notre travail
+            <a href="/studio">Découvrir notre studio</a>
           </Button>
         </div>
       </div>

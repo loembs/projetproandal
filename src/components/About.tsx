@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Award, Users, Target } from "lucide-react";
 
@@ -20,8 +19,7 @@ export const About = () => {
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
                 Notre mission est de proposer des <strong className="text-black">solutions créatives, 
-                innovantes et adaptées aux réalités locales</strong> pour accompagner les entreprises 
-                sénégalaises dans leur croissance.
+                innovantes et adaptées aux réalités locales</strong> pour accompagner nos clients dans leur croissance.
               </p>
             </div>
 
@@ -34,16 +32,16 @@ export const About = () => {
           </div>
 
           {/* Image Side */}
-          <div className="relative">
+          <div className="relative flex flex-col items-center justify-center">
             <div className="bg-gradient-to-br from-yellow-400 to-blue-600 rounded-2xl p-1">
-              <div className="bg-white rounded-2xl p-8 h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span className="text-white text-4xl font-bold">MO</span>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-black mb-2">Mourzane Ousmanou</h3>
-                  <p className="text-blue-600 font-medium text-lg">Fondatrice & Directrice Créative</p>
-                </div>
+              <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center">
+                <img
+                  src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1751396717/Un_r%C3%AAve_devenu_lieu.Bienvenue_chez_Studio_Andal_Creative.Un_espace_o%C3%B9_les_voix_prennent_vie_%EF%B8%8F_o%C3%B9_la_beaut%C3%A9_s_exprime_sans_filtre_et_o%C3%B9_chaque_image_raconte_une_histoire_.Ce_n_est_pas_qu_un_studio.C_est_un_3_zh2cv6.jpg"
+                  alt="Photo de l'équipe Andal Creative"
+                  className="w-80 h-80 object-cover rounded-2xl shadow-lg mb-6"
+                />
+                <h3 className="text-2xl font-semibold text-black mb-2">Notre équipe</h3>
+                <p className="text-blue-600 font-medium text-base text-center">Une équipe passionnée à votre service</p>
               </div>
             </div>
           </div>

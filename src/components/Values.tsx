@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, Award, Zap } from "lucide-react";
 
@@ -17,7 +16,7 @@ export const Values = () => {
     {
       title: "Adaptabilité",
       icon: Zap,
-      description: "Nous adaptons nos stratégies aux spécificités locales et aux besoins uniques de chaque entreprise sénégalaise."
+      description: "Nous adaptons nos stratégies aux spécificités locales et aux besoins uniques de chaque client."
     }
   ];
 
