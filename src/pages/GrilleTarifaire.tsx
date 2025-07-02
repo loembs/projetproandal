@@ -8,7 +8,7 @@ const GrilleTarifaire = () => {
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black drop-shadow-lg tracking-tight">Grille tarifaire du Studio</h1>
       <div className="w-full max-w-4xl h-[80vh] rounded-3xl border-4 border-yellow-400 bg-white shadow-2xl overflow-hidden animate-fade-in">
         <iframe
-          src="../../public/images/Grilles tarifaires Andal Créative Studio.pdf"
+          src="/images/Grilles%20tarifaires%20Andal%20Cre%CC%81ative%20Studio.pdf"
           title="Grille tarifaire Andal Creative Studio"
           className="w-full h-full rounded-2xl"
           style={{ border: 0 }}
