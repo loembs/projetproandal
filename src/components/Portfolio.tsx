@@ -9,6 +9,7 @@ const logos = [
   { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461608/t%C3%A9l%C3%A9chargement_ycv3el.jpg", name: "Kapreece" },
   { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461591/t%C3%A9l%C3%A9chargement_1_kgwxjf.png", name: "Africa Global Study" },
   { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461560/t%C3%A9l%C3%A9chargement_1_xiveff.jpg", name: "Kolo" },
+  { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751474478/t%C3%A9l%C3%A9chargement_2_grbxe7.png", name: "F&W PARIS" },
   // Ajoute ici d'autres entreprises si besoin
 ];
 
