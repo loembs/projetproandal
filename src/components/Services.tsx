@@ -32,7 +32,7 @@ export const Services = () => {
       title: "Développement web",
       icon: Code,
       description: "Création de sites web modernes, accompagnement digital sur-mesure et solutions adaptées à vos besoins pour booster votre présence en ligne.",
-      features: ["Sites vitrines & e-commerce", "Applications web sur-mesure", "Refonte & optimisation", "Accompagnement digital"]
+      features: ["Sites vitrines & e-commerce", "Applications web sur-mesure", "optimisation", "Accompagnement digital"]
     }
   ];
 

@@ -15,7 +15,7 @@ const studioImages = [
   {
     title: "Coin Makeup",
     img: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751385520/Un_r%C3%AAve_devenu_lieu.Bienvenue_chez_Studio_Andal_Creative.Un_espace_o%C3%B9_les_voix_prennent_vie_%EF%B8%8F_o%C3%B9_la_beaut%C3%A9_s_exprime_sans_filtre_et_o%C3%B9_chaque_image_raconte_une_histoire_.Ce_n_est_pas_qu_un_studio.C_est_un_2_mkjkej.jpg",
-    description: "Un espace dédié au maquillage professionnel, pour sublimer chaque séance."
+    description: "Un espace dédié au maquillage professionnel, pour sublimer chaque séance,ainsi que la pose de vos perruques."
   }
 ];
 
