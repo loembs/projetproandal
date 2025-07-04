@@ -1,73 +1,87 @@
-# Welcome to your Lovable project
+# Andal Creative Studio
 
-## Project info
+## À propos du projet
 
-**URL**: https://lovable.dev/projects/cf82c579-a575-4319-954a-0a9af67bcc1c
+**Andal Creative Studio** est un site web moderne développé avec les technologies les plus récentes pour présenter nos services créatifs et notre portefolio.
 
-## How can I edit this code?
+## Technologies utilisées
 
-There are several ways of editing your application.
+Ce projet est construit avec :
 
-**Use Lovable**
+- **Vite** - Outil de build rapide et moderne
+- **TypeScript** - Langage de programmation typé
+- **React** - Bibliothèque JavaScript pour les interfaces utilisateur
+- **shadcn/ui** - Composants UI modernes et accessibles
+- **Tailwind CSS** - Framework CSS utilitaire
+- **React Router** - Navigation côté client
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cf82c579-a575-4319-954a-0a9af67bcc1c) and start prompting.
+## Comment modifier ce code ?
 
-Changes made via Lovable will be committed automatically to this repo.
+### Développement local
 
-**Use your preferred IDE**
+Pour travailler localement avec votre IDE préféré, clonez ce repo et poussez les modifications.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+**Prérequis** : Node.js & npm installés - [installer avec nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Suivez ces étapes :
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Étape 1 : Cloner le repository
+git clone <URL_DU_REPO>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Étape 2 : Naviguer vers le répertoire du projet
+cd andal-creative
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Étape 3 : Installer les dépendances
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Étape 4 : Démarrer le serveur de développement
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Édition directe sur GitHub
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Naviguez vers le fichier souhaité
+- Cliquez sur le bouton "Edit" (icône crayon) en haut à droite
+- Effectuez vos modifications et committez les changements
 
-**Use GitHub Codespaces**
+### Utilisation de GitHub Codespaces
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Naviguez vers la page principale de votre repository
+- Cliquez sur le bouton "Code" (bouton vert) en haut à droite
+- Sélectionnez l'onglet "Codespaces"
+- Cliquez sur "New codespace" pour lancer un nouvel environnement
+- Éditez les fichiers directement dans le Codespace et committez vos changements
 
-## What technologies are used for this project?
+## Scripts disponibles
 
-This project is built with:
+- `npm run dev` - Démarre le serveur de développement
+- `npm run build` - Construit l'application pour la production
+- `npm run preview` - Prévisualise la version de production
+- `npm run lint` - Vérifie le code avec ESLint
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Déploiement
 
-## How can I deploy this project?
+Le projet peut être déployé sur n'importe quelle plateforme supportant les applications React statiques :
 
-Simply open [Lovable](https://lovable.dev/projects/cf82c579-a575-4319-954a-0a9af67bcc1c) and click on Share -> Publish.
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
 
-## Can I connect a custom domain to my Lovable project?
+## Structure du projet
 
-Yes, you can!
+```
+andal-creative/
+├── public/          # Fichiers statiques
+├── src/             # Code source
+│   ├── components/  # Composants React
+│   ├── pages/       # Pages de l'application
+│   ├── hooks/       # Hooks personnalisés
+│   └── lib/         # Utilitaires et configurations
+└── ...
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Pour toute question ou support, contactez l'équipe Andal Creative Studio.
