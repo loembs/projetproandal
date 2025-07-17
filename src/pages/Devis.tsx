@@ -75,7 +75,7 @@ export default function Devis() {
           {/* Contenu de l'onglet RDV */}
           {tab === TAB_RDV && (
             <div className="flex flex-col items-center space-y-6 py-8 w-full">
-              <h2 className="text-3xl font-extrabold text-yellow-500 mb-2 text-center">
+              <h2 className="text-3xl font-extrabold text-black mb-2 text-center">
                 Réserve ton créneau Zoom avec l'agence
               </h2>
               <p className="text-gray-700 text-center mb-4">
@@ -117,7 +117,7 @@ export default function Devis() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <h1 className="text-3xl font-extrabold mb-4 text-center text-yellow-500 drop-shadow">Envoyer une demande</h1>
+                <h1 className="text-3xl font-extrabold mb-4 text-center text-black drop-shadow">Envoyer une demande</h1>
                 {error && <div className="text-red-600 text-center">{error}</div>}
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Email</label>

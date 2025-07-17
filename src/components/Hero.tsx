@@ -48,7 +48,7 @@ export const Hero = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 text-lg font-semibold transition-all duration-300"
+            className="border-2 border-yellow-400 text-black hover:bg-yellow-400 hover:text-black px-8 py-4 text-lg font-semibold transition-all duration-300"
             asChild
           >
             <a href="/studio">Découvrir notre studio</a>

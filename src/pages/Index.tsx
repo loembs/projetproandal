@@ -53,9 +53,6 @@ const Index = () => {
       <Values />
       <Contact />
       <Footer />
-      <a href="/images/Grilles tarifaires Andal Créative Studio.pdf" download>
-        Télécharger la grille tarifaire
-      </a>
     </div>
   );
 };

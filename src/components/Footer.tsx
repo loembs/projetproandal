@@ -24,7 +24,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4 mr-2" /> Cameroun
@@ -34,7 +34,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4 mr-2" /> Sénégal
@@ -44,7 +44,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4 mr-2" /> Côte d'Ivoire
@@ -82,15 +82,23 @@ export const Footer = () => {
             <span>au Sénégal</span>
           </div>
           
-          <Button 
-            onClick={scrollToTop}
-            variant="outline" 
-            size="sm"
-            className="border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black"
-          >
-            <ArrowUp className="w-4 h-4 mr-2" />
-            Retour en haut
-          </Button>
+          <div className="flex justify-center items-center h-16">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="focus:outline-none"
+              aria-label="Retour en haut"
+            >
+              <svg
+                className="w-8 h-8 text-yellow-400 animate-bounce"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </footer>

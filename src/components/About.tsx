@@ -4,11 +4,11 @@ import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 bg-white">
+    <section id="about" className="py-12 bg-white h-full">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Content Side */}
-          <div className="space-y-8">
+          <div className="space-y-8 h-full">
             <div>
               <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
                 Qui sommes-nous ?
@@ -46,9 +46,9 @@ export const About = () => {
           </div>
 
           {/* Image Side */}
-          <div className="relative flex flex-col items-center justify-center">
-            <div className="bg-gradient-to-br from-yellow-400 to-blue-600 rounded-2xl p-1">
-              <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center">
+          <div className="relative flex flex-col items-center justify-center h-full">
+            <div className="bg-gradient-to-br from-yellow-400 to-blue-600 rounded-2xl p-1 h-full">
+              <div className="bg-white rounded-2xl p-4 flex flex-col items-center justify-center h-full">
                 <img
                   src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1751396717/Un_r%C3%AAve_devenu_lieu.Bienvenue_chez_Studio_Andal_Creative.Un_espace_o%C3%B9_les_voix_prennent_vie_%EF%B8%8F_o%C3%B9_la_beaut%C3%A9_s_exprime_sans_filtre_et_o%C3%B9_chaque_image_raconte_une_histoire_.Ce_n_est_pas_qu_un_studio.C_est_un_3_zh2cv6.jpg"
                   alt="Photo de l'équipe Andal Creative"
