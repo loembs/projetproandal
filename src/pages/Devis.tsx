@@ -36,7 +36,7 @@ export default function Devis() {
       besoin: form.besoin.value
     };
     // Remplacer l'URL ci-dessous par celle de Formspree ou EmailJS
-    const res = await fetch("https://formspree.io/f/{form_id}", {
+    const res = await fetch("https://formspree.io/f/mqalpavj", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
