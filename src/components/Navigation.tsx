@@ -57,7 +57,7 @@ export const Navigation = () => {
                   : "bg-yellow-400 hover:bg-yellow-500 text-black"}
               `}
             >
-              Devis gratuit
+              prendre rendez-vous 
             </a>
           </div>
 

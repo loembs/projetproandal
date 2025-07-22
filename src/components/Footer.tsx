@@ -27,7 +27,12 @@ export const Footer = () => {
                 className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="w-4 h-4 mr-2" /> Cameroun
+                <img
+                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
+                      alt="Icône"
+                      className="w-6 h-6 inline-block mr-2"
+                    />
+                  Cameroun
                 </a>
               </Button>
               <Button 
@@ -37,7 +42,11 @@ export const Footer = () => {
                 className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="w-4 h-4 mr-2" /> Sénégal
+                <img
+                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
+                      alt="Icône"
+                      className="w-6 h-6 inline-block mr-2"
+                    /> Sénégal
                 </a>
               </Button>
               <Button 
@@ -47,7 +56,11 @@ export const Footer = () => {
                 className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
-                  <Instagram className="w-4 h-4 mr-2" /> Côte d'Ivoire
+                <img
+                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
+                      alt="Icône"
+                      className="w-6 h-6 inline-block mr-2"
+                    /> Côte d'Ivoire
                 </a>
               </Button>
             </div>
@@ -60,7 +73,7 @@ export const Footer = () => {
               <li><a href="#" className="hover:text-yellow-400 transition-colors">Marketing Digital</a></li>
               <li><a href="#" className="hover:text-yellow-400 transition-colors">Production de Contenu</a></li>
               <li><a href="#" className="hover:text-yellow-400 transition-colors">Événements</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Consultation</a></li>
+              <li><a href="#" className="hover:text-yellow-400 transition-colors">Création de sites web modernes</a></li>
             </ul>
           </div>
 

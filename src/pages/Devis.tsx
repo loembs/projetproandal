@@ -59,13 +59,13 @@ export default function Devis() {
           {/* Onglets */}
           <div className="flex mb-8">
             <button
-              className={`flex-1 py-3 rounded-l-xl font-bold text-lg transition ${tab === TAB_RDV ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-l-xl font-bold text-[15px] transition ${tab === TAB_RDV ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
               onClick={() => setTab(TAB_RDV)}
             >
               Prendre un RDV Zoom
             </button>
             <button
-              className={`flex-1 py-3 rounded-r-xl font-bold text-lg transition ${tab === TAB_DEMANDE ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-r-xl font-bold text-[15px] transition ${tab === TAB_DEMANDE ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
               onClick={() => setTab(TAB_DEMANDE)}
             >
               Envoyer une demande
