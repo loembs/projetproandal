@@ -91,7 +91,7 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 text-gray-400 mb-4 md:mb-0">
-            <span>© 2024 Andal Creative. Fait </span>
+            <span>© 2025 Andal Creative. Fait </span>
             <span>au Sénégal</span>
           </div>
           
