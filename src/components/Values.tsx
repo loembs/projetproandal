@@ -59,8 +59,7 @@ export const Values = () => {
         <div className="text-center">
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl font-light italic mb-6 text-gray-300">
-              "Notre approche unique combine créativité internationale et 
-              compréhension profonde du marché local sénégalais."
+              "Une créativité sans frontières au service de vos ambitions. Chaque idée est pensée pour faire la différence."
             </blockquote>
             <cite className="text-lg font-semibold text-yellow-400">
               — Mourzanatou Ousmanou, Fondatrice

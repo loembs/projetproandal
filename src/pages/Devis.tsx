@@ -20,7 +20,7 @@ export default function Devis() {
   // Ouvre le widget Calendly (popup)
   const openCalendly = () => {
     console.log("Calendly ouvert !");
-    window.Calendly && window.Calendly.initPopupWidget({ url: "https://calendly.com/andal-creative" });
+    window.Calendly && window.Calendly.initPopupWidget({ url: "https://calendly.com/mourzaneousmanou-andalcreative" });
     return false;
   };
 
@@ -36,7 +36,7 @@ export default function Devis() {
       besoin: form.besoin.value
     };
     // Remplacer l'URL ci-dessous par celle de Formspree ou EmailJS
-    const res = await fetch("https://formspree.io/f/mqalpavj", {
+    const res = await fetch("https://formspree.io/f/xkgzjdwe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -93,7 +93,7 @@ export default function Devis() {
                 }}
               >
                 <iframe
-                  src="https://calendly.com/andal-creative"
+                  src="https://calendly.com/mourzaneousmanou-andalcreative"
                   width="100%"
                   height="100%"
                   frameBorder="0"
@@ -147,7 +147,7 @@ function CalendlyInline() {
   return (
     <div style={{ minWidth: "320px", maxWidth: "1100px", width: "100%", height: "350px", paddingTop: "2rem", paddingBottom: "2rem" }}>
       <iframe
-        src="https://calendly.com/andal-creative"
+        src="https://calendly.com/mourzaneousmanou-andalcreative"
         width="100%"
         height="100%"
         frameBorder="0"

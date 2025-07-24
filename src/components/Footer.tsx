@@ -83,7 +83,7 @@ export const Footer = () => {
             <ul className="space-y-3 text-gray-300">
               <li>+221 782800808</li>
               <li>contact@andalcreative.com</li>
-              <li>Dakar, Sénégal</li>
+              <li>Dakar, Sénégal  - Abidjan, Côte d'Ivoire - Douala, Cameroun</li>
             </ul>
           </div>
         </div>
@@ -91,8 +91,7 @@ export const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 text-gray-400 mb-4 md:mb-0">
-            <span>© 2025 Andal Creative. Fait </span>
-            <span>au Sénégal</span>
+            <span>© 2025 Andal Creative </span>
           </div>
           
           <div className="flex justify-center items-center h-16">

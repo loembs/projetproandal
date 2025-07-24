@@ -48,7 +48,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-black">Adresse</h3>
-                  <p className="text-gray-600">Dakar, Sénégal</p>
+                  <p className="text-gray-600">Dakar, Sénégal  - Abidjan, Côte d'Ivoire - Douala, Cameroun</p>
                 </div>
               </div>
             </div>
