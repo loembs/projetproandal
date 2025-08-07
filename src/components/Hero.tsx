@@ -22,7 +22,6 @@ export const Hero = () => {
             loop
             playsInline
             className="w-full h-full object-cover opacity-80 smooth-transition"
-            poster="/placeholder.svg"
           >
             <source src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1751068418/blog_fpyxrs.mp4" type="video/mp4" />
             <source src="/your-video.webm" type="video/webm" />

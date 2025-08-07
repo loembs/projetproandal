@@ -1,24 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Award, Users, Target, Sparkles } from "lucide-react";
+import { Users } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { useSmoothAnimations } from "@/hooks/use-smooth-animations";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 export const About = () => {
   const { elementRef, animateOnScroll } = useSmoothAnimations();
-  const logoRef = useRef<HTMLImageElement>(null);
 
-    useEffect(() => {
+  useEffect(() => {
     // Animation au scroll
     const cleanup = animateOnScroll();
-    
-    // Initialize letters
-    const logo = logoRef.current;
-    if (logo) {
-      console.log('Logo found, initializing letters...');
-      const letters = logo.querySelectorAll('.letter');
-      console.log('Found letters:', letters.length);
-    }
     
     // Section transition observer
     const section = elementRef.current;
@@ -40,63 +31,6 @@ export const About = () => {
       observer.observe(section);
       
       return () => observer.disconnect();
-    }
-    
-    // Logo text animation
-    if (logo) {
-      console.log('Setting up logo animation...');
-      
-      const animateLogo = () => {
-        console.log('Animation starting...');
-        
-        // Get all letters
-        const letters = logo.querySelectorAll('.letter');
-        console.log('Found letters:', letters.length);
-        
-        // Reset all letters by removing animate class
-        letters.forEach((letter) => {
-          (letter as HTMLElement).classList.remove('animate');
-        });
-        
-        // Force reflow to ensure reset is applied
-        logo.offsetHeight;
-        
-        // Animate letters one by one
-        letters.forEach((letter, index) => {
-          setTimeout(() => {
-            console.log(`Animating letter ${index + 1}`);
-            (letter as HTMLElement).classList.add('animate');
-          }, index * 400);
-        });
-      };
-      
-      // Trigger animation when section comes into view
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            console.log('About section is visible, starting animation...');
-            // Small delay to ensure the section is fully visible
-            setTimeout(() => {
-              animateLogo();
-            }, 200);
-          }
-        });
-      }, { 
-        threshold: 0.2, // Trigger when 20% of the section is visible
-        rootMargin: '0px 0px -50px 0px' // Trigger slightly before
-      });
-      
-      observer.observe(logo);
-      
-      // Trigger animation immediately on page load
-      setTimeout(() => {
-        console.log('Triggering initial animation...');
-        animateLogo();
-      }, 300);
-      
-      return () => {
-        observer.disconnect();
-      };
     }
     
     return cleanup;
@@ -141,33 +75,22 @@ export const About = () => {
             </Dialog>
           </div>
 
-          {/* Logo Animation Side */}
+          {/* Team Image Side */}
           <div className="relative flex flex-col items-center justify-center h-full">
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full">
-              {/* Logo Animation Container */}
-              <div className="relative w-99 h-99 flex items-center justify-center">
-                {/* Main Logo with Switch Animation */}
+            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl">
+              {/* Team Image Container */}
+              <div className="relative w-full h-96 flex items-center justify-center">
+                {/* Team Image */}
                 <div className="relative z-10 text-center">
-                  <div className="logo-container mb-6">
-                    <div 
-                      ref={logoRef}
-                      className="text-8xl md:text-9xl font-bold tracking-wide logo-text whitespace-nowrap"
-                      style={{
-                        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <span className="letter" data-letter="A">A</span>
-                      <span className="letter" data-letter="N">N</span>
-                      <span className="letter" data-letter="D">D</span>
-                      <span className="letter" data-letter="A">A</span>
-                      <span className="letter" data-letter="L">L</span>
+                  <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/20 to-blue-600/20 rounded-2xl p-8 flex items-center justify-center shadow-lg">
+                    <div className="text-center">
+                      <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
+                        <Users className="w-12 h-12 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-semibold text-black mb-2">Notre Équipe</h3>
+                      <p className="text-blue-600 font-medium text-base">Professionnels passionnés</p>
+                      <p className="text-gray-600 text-sm mt-2">Experts en communication créative</p>
                     </div>
-                  </div>
-                  {/* Tagline */}
-                  <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                    <h3 className="text-2xl font-semibold text-black mb-2">Creative</h3>
-                    <p className="text-blue-600 font-medium text-base">Le savoir au service de votre réussite</p>
                   </div>
                 </div>
               </div>
