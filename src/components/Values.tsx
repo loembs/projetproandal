@@ -1,7 +1,32 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, Award, Zap } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export const Values = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { 
+        threshold: 0.1,
+        rootMargin: '-50px 0px -50px 0px'
+      }
+    );
+
+    observer.observe(section);
+    
+    return () => observer.disconnect();
+  }, []);
   const values = [
     {
       title: "Innovation",
@@ -21,7 +46,7 @@ export const Values = () => {
   ];
 
   return (
-    <section className="py-32 bg-black text-white">
+    <section ref={sectionRef} className="py-32 bg-black text-white section-transition-right">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-light mb-8 leading-tight">
@@ -59,7 +84,9 @@ export const Values = () => {
         <div className="text-center">
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-2xl md:text-3xl font-light italic mb-6 text-gray-300">
-              "Une créativité sans frontières au service de vos ambitions. Chaque idée est pensée pour faire la différence."
+              "Une présence panafricaine
+Avec des antennes basées à Dakar, Douala et Abidjan, Andal Creative déploie ses projets à l’échelle régionale, en intégrant les réalités et sensibilités locales.
+Nous collaborons avec des marques ambitieuses, africaines et internationales, désireuses de créer des récits puissants, portés par la créativité et enracinés dans leur identité."
             </blockquote>
             <cite className="text-lg font-semibold text-yellow-400">
               — Mourzanatou Ousmanou, Fondatrice

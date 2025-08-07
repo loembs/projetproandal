@@ -4,10 +4,35 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 export const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      { 
+        threshold: 0.1,
+        rootMargin: '-50px 0px -50px 0px'
+      }
+    );
+
+    observer.observe(section);
+    
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section id="contact" className="py-12 bg-gray-50">
+    <section ref={sectionRef} id="contact" className="py-12 bg-gray-50 section-transition">
       <div className="container mx-auto px-6">
         <div className="text-center mb-8">
           <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">

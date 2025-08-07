@@ -1,13 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { Heart, ArrowUp, Instagram, Linkedin, Facebook } from "lucide-react";
+import { useSmoothAnimations } from "@/hooks/use-smooth-animations";
+import { useEffect } from "react";
 
 export const Footer = () => {
+  const { elementRef, animateOnScroll } = useSmoothAnimations();
+
+  useEffect(() => {
+    // Animation au scroll
+    const cleanup = animateOnScroll();
+    return cleanup;
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-black text-white">
+    <footer ref={elementRef} className="bg-black text-white">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -24,7 +34,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -39,7 +49,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -53,7 +63,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
+                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -70,10 +80,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Marketing Digital</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Production de Contenu</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Événements</a></li>
-              <li><a href="#" className="hover:text-yellow-400 transition-colors">Création de sites web modernes</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Marketing Digital</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Production de Contenu</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Événements</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Création de sites web modernes</a></li>
             </ul>
           </div>
 
@@ -96,8 +106,8 @@ export const Footer = () => {
           
           <div className="flex justify-center items-center h-16">
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="focus:outline-none"
+              onClick={scrollToTop}
+              className="focus:outline-none smooth-transition hover:scale-110"
               aria-label="Retour en haut"
             >
               <svg
