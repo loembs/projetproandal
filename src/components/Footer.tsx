@@ -17,13 +17,13 @@ export const Footer = () => {
   };
 
   return (
-    <footer ref={elementRef} className="bg-black text-white">
+    <footer ref={elementRef} id="footer" className="bg-black text-white">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-3xl font-bold mb-6 text-yellow-400">
-              <img src="/images/ANDAL.png" alt="Logo ANDAL" className="h-12 w-auto inline" />
+            <h3 className="text-4xl font-bold mb-6 text-yellow-400">
+              <img src="/images/andalblanc.png" alt="Logo ANDAL" className="h-20 w-auto inline" />
             </h3>
             <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg">
               Votre partenaire créatif pour transformer votre vision en réalité digitale. 
@@ -34,7 +34,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
+                className="bg-black border-yellow-400 text-white"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -49,7 +49,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
+                className="bg-black border-yellow-400 text-white"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -63,7 +63,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black smooth-transition hover-lift"
+                className="bg-black border-yellow-400 text-white"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -81,18 +81,20 @@ export const Footer = () => {
             <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
             <ul className="space-y-3 text-gray-300">
               <li><a href="#" className="hover:text-yellow-400 smooth-transition">Marketing Digital</a></li>
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Production de Contenu</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Production de Contenus</a></li>
               <li><a href="#" className="hover:text-yellow-400 smooth-transition">Événements</a></li>
+              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Location  studio créatif </a></li>
               <li><a href="#" className="hover:text-yellow-400 smooth-transition">Création de sites web modernes</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-xl font-semibold mb-6 text-white">Contact</h4>
+            <h4 className="text-xl font-semibold mb-6 text-white">Contacts</h4>
             <ul className="space-y-3 text-gray-300">
               <li>+221 782800808</li>
-              <li>contact@andalcreative.com</li>
+              <li>+237 682908439</li>
+              <li>contacts@andalcreative.com</li>
               <li>Dakar, Sénégal  - Abidjan, Côte d'Ivoire - Douala, Cameroun</li>
             </ul>
           </div>

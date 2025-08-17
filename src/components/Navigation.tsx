@@ -28,7 +28,7 @@ export const Navigation = () => {
     { label: "Accueil", href: "#hero" },
     { label: "À propos", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "Contact", href: "#footer" },
   ];
 
   return (
@@ -42,7 +42,7 @@ export const Navigation = () => {
           <div className={`text-2xl font-bold transition-colors duration-300 ${
             isScrolled ? "text-black" : "text-white"
           }`}>
-            <img src="/images/typo.png" alt="Logo ANDAL" className="h-20 w-auto" />
+            <img src="/images/ANDALreativenoir.png" alt="Logo ANDAL" className="h-20 w-auto" />
           </div>
 
           {/* Desktop Menu */}
@@ -70,7 +70,7 @@ export const Navigation = () => {
                   : "bg-yellow-400 hover:bg-yellow-500 text-black"}
               `}
             >
-              prendre rendez-vous 
+              Prendre rendez-vous 
             </a>
           </div>
 

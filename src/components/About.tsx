@@ -50,7 +50,7 @@ export const About = () => {
                Andal Creative est une agence de communication 360° qui accompagne les marques, institutions et porteurs de projets dans la conception, la stratégie et la réalisation de campagnes créatives à fort impact.
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Fidèle à son nom <strong className="text-yellow-500">Andal</strong> signifiant le savoir en pulaar l’agence s’appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
+                Fidèle à son nom <strong className="text-yellow-500">Andal</strong> signifiant "le savoir" en pulaar l’agence s’appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
               </p>
             </div>
 
@@ -77,20 +77,29 @@ export const About = () => {
 
           {/* Team Image Side */}
           <div className="relative flex flex-col items-center justify-center h-full">
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl">
+            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl relative overflow-hidden">
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755394548/photo_d_%C3%A9quipe_zs7imc.jpg" 
+                  alt="photo d'équipe en arrière-plan"
+                  className="w-full h-full object-cover opacity-20"
+                />
+              </div>
+              
               {/* Team Image Container */}
-              <div className="relative w-full h-96 flex items-center justify-center">
+              <div className="relative w-full h-96 flex items-center justify-center z-10">
                 {/* Team Image */}
                 <div className="relative z-10 text-center">
-                  <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/20 to-blue-600/20 rounded-2xl p-8 flex items-center justify-center shadow-lg">
-                    <div className="text-center">
-                      <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-                        <Users className="w-12 h-12 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-semibold text-black mb-2">Notre Équipe</h3>
-                      <p className="text-blue-600 font-medium text-base">Professionnels passionnés</p>
-                      <p className="text-gray-600 text-sm mt-2">Experts en communication créative</p>
+                  <div className="w-80 h-80 bg-gradient-to-br from-yellow-400/20 to-blue-600/20 rounded-2xl p-8 flex items-center justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
+                    <div className="absolute inset-0 z-0">
+                      <img 
+                        src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755394548/photo_d_%C3%A9quipe_zs7imc.jpg" 
+                        alt="photo d'équipe"
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
                     </div>
+                    
                   </div>
                 </div>
               </div>

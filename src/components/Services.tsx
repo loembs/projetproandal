@@ -162,7 +162,7 @@ export const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`service-card group flex flex-col lg:flex-row items-stretch gap-0 lg:gap-8 p-0 rounded-2xl modern-card shadow-xl hover:shadow-2xl smooth-transition hover-lift-modern overflow-hidden ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+              className={`service-card group flex flex-col lg:flex-row items-stretch gap-0 lg:gap-8 p-0 rounded-2xl modern-card shadow-xl hover:shadow-2xl smooth-transition hover-lift-modern overflow-hidden card-animate dynamic-hover ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               
@@ -172,7 +172,7 @@ export const Services = () => {
                 {service.title === "Stratégie & conseil" && (
                   <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
                     <img 
-                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                      src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png" 
                       alt="Stratégie et conseil"
                       className="w-full h-full object-cover opacity-60"
                     />
@@ -250,9 +250,9 @@ export const Services = () => {
                 
                 {/* Service Icon Overlay - Mobile Optimized */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-xl group-hover:scale-110 smooth-transition">
-                    <service.icon className="w-8 h-8 md:w-10 md:h-10 text-black" />
-                  </div>
+                                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-xl group-hover:scale-110 smooth-transition animate-pulse-glow">
+                  <service.icon className="w-8 h-8 md:w-10 md:h-10 text-black icon-dynamic" />
+                </div>
                 </div>
                 
                 {/* Service Number - Mobile Optimized */}
@@ -331,7 +331,7 @@ export const Services = () => {
             Demander un devis personnalisé
           </a>
               <a
-                href="/contact"
+                href="#footer"
                 className="inline-block border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl smooth-transition hover-lift hover:bg-white hover:text-black"
               >
                 Nous contacter
