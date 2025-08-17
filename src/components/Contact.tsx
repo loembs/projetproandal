@@ -2,10 +2,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, ExternalLink } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export const Contact = () => {
-  const sectionRef = useRef<HTMLElement>(null);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const portfolioItems = [
@@ -95,45 +94,14 @@ export const Contact = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === selectedCategory);
 
-    useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            
-            // Animer les cartes du portfolio
-            const cards = entry.target.querySelectorAll('.portfolio-item');
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add('animate-in');
-              }, index * 50);
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '-50px 0px -50px 0px'
-      }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="portfolio" className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 section-transition">
+    <section id="portfolio" className="py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
+          <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight animate-fade-in-up">
             Notre Portfolio
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Découvrez nos réalisations créatives et innovantes
           </p>
         </div>
@@ -146,12 +114,12 @@ export const Contact = () => {
               variant={selectedCategory === category.id ? "default" : "outline"}
               size="sm"
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-all duration-300 btn-dynamic ${
+              className={`px-6 py-2 rounded-full btn-animate ${
                 selectedCategory === category.id
                   ? 'bg-yellow-400 text-black border-yellow-400 hover:bg-yellow-500'
                   : 'border-gray-300 text-gray-700 hover:border-yellow-400 hover:text-yellow-400'
               }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {category.name}
             </Button>
@@ -161,7 +129,7 @@ export const Contact = () => {
         {/* Grille Portfolio */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
-            <Card key={item.id} className="group bg-white shadow-lg border-0 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 portfolio-item dynamic-hover" style={{ animationDelay: `${index * 0.05}s` }}>
+            <Card key={item.id} className="group bg-white shadow-lg border-0 overflow-hidden hover:shadow-xl hover:-translate-y-1 card-animate" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="relative overflow-hidden">
                 {item.category === 'web-design' ? (
                   // Simulation d'ordinateur pour les projets web
@@ -181,7 +149,7 @@ export const Contact = () => {
                         <img 
                           src={item.image} 
                           alt={item.title}
-                          className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300 img-dynamic"
+                          className="w-full h-full object-cover group-hover:scale-102"
                         />
                       </div>
                     </div>
@@ -192,11 +160,11 @@ export const Contact = () => {
                     <img 
                       src={item.image} 
                       alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 img-dynamic"
+                      className="w-full h-full object-cover group-hover:scale-105"
                     />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center">
                   <div className="flex space-x-4">
                     <Button size="sm" className="bg-white/20 backdrop-blur-sm border-white/30 text-white hover:bg-white/30">
                       <Eye className="w-4 h-4 mr-2" />
@@ -210,7 +178,7 @@ export const Contact = () => {
                 </div>
               </div>
               <CardContent className="p-6 relative z-10">
-                <h3 className="text-xl font-semibold text-black mb-2 group-hover:text-yellow-600 transition-colors text-dynamic">
+                <h3 className="text-xl font-semibold text-black mb-2 group-hover:text-yellow-600">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">

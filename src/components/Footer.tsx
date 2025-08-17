@@ -1,31 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Heart, ArrowUp, Instagram, Linkedin, Facebook } from "lucide-react";
-import { useSmoothAnimations } from "@/hooks/use-smooth-animations";
-import { useEffect } from "react";
 
 export const Footer = () => {
-  const { elementRef, animateOnScroll } = useSmoothAnimations();
-
-  useEffect(() => {
-    // Animation au scroll
-    const cleanup = animateOnScroll();
-    return cleanup;
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer ref={elementRef} id="footer" className="bg-black text-white">
+    <footer id="footer" className="bg-black text-white">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-4xl font-bold mb-6 text-yellow-400">
+            <h3 className="text-4xl font-bold mb-6 text-yellow-400 animate-fade-in-up">
               <img src="/images/andalblanc.png" alt="Logo ANDAL" className="h-20 w-auto inline" />
             </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg">
+            <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Votre partenaire créatif pour transformer votre vision en réalité digitale. 
               Nous vous accompagnons vers l'excellence.
             </p>
@@ -34,7 +24,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black border-yellow-400 text-white"
+                className="bg-black  text-white btn-animate"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -49,7 +39,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black border-yellow-400 text-white"
+                className="bg-black  text-white btn-animate"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -63,7 +53,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black border-yellow-400 text-white"
+                className="bg-black  text-white btn-animate"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -80,11 +70,11 @@ export const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Marketing Digital</a></li>
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Production de Contenus</a></li>
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Événements</a></li>
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Location  studio créatif </a></li>
-              <li><a href="#" className="hover:text-yellow-400 smooth-transition">Création de sites web modernes</a></li>
+              <li><a href="#" className="hover:text-yellow-400">Marketing Digital</a></li>
+              <li><a href="#" className="hover:text-yellow-400">Production de Contenus</a></li>
+              <li><a href="#" className="hover:text-yellow-400">Événements</a></li>
+              <li><a href="#" className="hover:text-yellow-400">Location  studio créatif </a></li>
+              <li><a href="#" className="hover:text-yellow-400">Création de sites web modernes</a></li>
             </ul>
           </div>
 
@@ -109,11 +99,11 @@ export const Footer = () => {
           <div className="flex justify-center items-center h-16">
             <button
               onClick={scrollToTop}
-              className="focus:outline-none smooth-transition hover:scale-110"
+              className="focus:outline-none hover:scale-110 animate-bounce"
               aria-label="Retour en haut"
             >
               <svg
-                className="w-8 h-8 text-yellow-400 animate-bounce"
+                className="w-8 h-8 text-yellow-400 hover:rotate-180 transition-transform duration-500"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

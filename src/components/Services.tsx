@@ -19,40 +19,8 @@ import {
   Mic,
   Lightbulb
 } from "lucide-react";
-import { useSmoothAnimations } from "@/hooks/use-smooth-animations";
-import { useEffect } from "react";
 
 export const Services = () => {
-  const { elementRef, animateOnScroll, animateStagger } = useSmoothAnimations();
-
-  useEffect(() => {
-    // Animation au scroll
-    const cleanup = animateOnScroll();
-    
-    // Section transition observer
-    const section = elementRef.current;
-    if (section) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-            }
-          });
-        },
-        { 
-          threshold: 0.1,
-          rootMargin: '-50px 0px -50px 0px'
-        }
-      );
-
-      observer.observe(section);
-      
-      return () => observer.disconnect();
-    }
-
-    return cleanup;
-  }, []);
   const services = [
     {
       title: "Stratégie & conseil",
@@ -134,7 +102,7 @@ export const Services = () => {
   ];
 
   return (
-    <section ref={elementRef} id="services" className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden section-transition-scale">
+    <section id="services" className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden section-transition-scale">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl"></div>
@@ -151,7 +119,7 @@ export const Services = () => {
             Nos Services
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed animate-fade-in-up px-4" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Une gamme complète de services <span className="font-semibold text-yellow-600">innovants</span> pour propulser votre entreprise 
             vers le <span className="font-semibold text-blue-600">succès digital</span> et créatif
           </p>
@@ -162,8 +130,8 @@ export const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`service-card group flex flex-col lg:flex-row items-stretch gap-0 lg:gap-8 p-0 rounded-2xl modern-card shadow-xl hover:shadow-2xl smooth-transition hover-lift-modern overflow-hidden card-animate dynamic-hover ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className={`service-card group flex flex-col lg:flex-row items-stretch gap-0 lg:gap-8 p-0 rounded-2xl modern-card shadow-xl hover:shadow-2xl overflow-hidden card-animate ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               
               {/* Background Media Section - Full width on mobile */}
@@ -250,8 +218,8 @@ export const Services = () => {
                 
                 {/* Service Icon Overlay - Mobile Optimized */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-xl group-hover:scale-110 smooth-transition animate-pulse-glow">
-                  <service.icon className="w-8 h-8 md:w-10 md:h-10 text-black icon-dynamic" />
+                                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-xl group-hover:scale-110">
+                  <service.icon className="w-8 h-8 md:w-10 md:h-10 text-black icon-animate" />
                 </div>
                 </div>
                 
@@ -264,7 +232,7 @@ export const Services = () => {
               {/* Content Section - Mobile Optimized */}
               <div className="flex-1 p-4 md:p-6">
                 <div className="mb-3 md:mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-black mb-2 group-hover:text-yellow-600 smooth-transition">
+                  <h3 className="text-xl md:text-2xl font-bold text-black mb-2 group-hover:text-yellow-600">
                     {service.title}
                   </h3>
                   {service.subtitle && (
@@ -283,10 +251,9 @@ export const Services = () => {
                     {service.features.map((feature, idx) => (
                     <div 
                       key={idx} 
-                      className="stagger-item flex items-center space-x-2 md:space-x-3 p-2 rounded-lg bg-gray-50 hover:bg-yellow-50 smooth-transition group/feature"
-                      style={{ animationDelay: `${idx * 0.1}s` }}
+                      className="stagger-item flex items-center space-x-2 md:space-x-3 p-2 rounded-lg bg-gray-50 hover:bg-yellow-50 group/feature"
                     >
-                      <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-400 rounded-full flex-shrink-0 group-hover/feature:scale-150 smooth-transition"></div>
+                                              <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-400 rounded-full flex-shrink-0 group-hover/feature:scale-150"></div>
                       <span className="text-xs md:text-sm text-gray-700 group-hover/feature:text-black font-medium">
                         {feature}
                       </span>
@@ -297,7 +264,7 @@ export const Services = () => {
                 {/* Action Button - Mobile Optimized */}
                   <Button 
                     asChild
-                    className="w-full md:w-auto bg-gradient-to-r from-yellow-400 to-blue-600 hover:from-yellow-500 hover:to-blue-700 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg smooth-transition hover-lift group-hover:shadow-lg"
+                    className="w-full md:w-auto bg-gradient-to-r from-yellow-400 to-blue-600 hover:from-yellow-500 hover:to-blue-700 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg group-hover:shadow-lg"
                   >
                     <a 
                       href="https://www.instagram.com/andal.creative/" 
@@ -305,7 +272,7 @@ export const Services = () => {
                       rel="noopener noreferrer"
                     >
                       Découvrir ce service
-                      <ArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 smooth-transition" />
+                      <ArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1" />
                     </a>
                   </Button>
               </div>
@@ -326,13 +293,13 @@ export const Services = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/devis"
-                className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold rounded-xl smooth-transition hover-lift hover:bg-gray-100"
+                className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold rounded-xl hover:bg-gray-100"
           >
             Demander un devis personnalisé
           </a>
               <a
                 href="#footer"
-                className="inline-block border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl smooth-transition hover-lift hover:bg-white hover:text-black"
+                className="inline-block border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl hover:bg-white hover:text-black"
               >
                 Nous contacter
               </a>

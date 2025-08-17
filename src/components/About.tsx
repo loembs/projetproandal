@@ -1,46 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Users } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import { useSmoothAnimations } from "@/hooks/use-smooth-animations";
-import { useEffect } from "react";
 
 export const About = () => {
-  const { elementRef, animateOnScroll } = useSmoothAnimations();
-
-  useEffect(() => {
-    // Animation au scroll
-    const cleanup = animateOnScroll();
-    
-    // Section transition observer
-    const section = elementRef.current;
-    if (section) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-            }
-          });
-        },
-        { 
-          threshold: 0.1,
-          rootMargin: '-50px 0px -50px 0px'
-        }
-      );
-
-      observer.observe(section);
-      
-      return () => observer.disconnect();
-    }
-    
-    return cleanup;
-  }, []);
   return (
-    <section ref={elementRef} id="about" className="py-12 bg-white h-full section-transition-left">
+    <section id="about" className="py-12 bg-white h-full">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
           {/* Content Side */}
-          <div className="space-y-8 h-full">
+          <div className="space-y-8 h-full animate-slide-in-left">
             <div>
               <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
                 Qui sommes-nous ?
@@ -50,7 +18,7 @@ export const About = () => {
                Andal Creative est une agence de communication 360° qui accompagne les marques, institutions et porteurs de projets dans la conception, la stratégie et la réalisation de campagnes créatives à fort impact.
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Fidèle à son nom <strong className="text-yellow-500">Andal</strong> signifiant "le savoir" en pulaar l’agence s’appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
+                Fidèle à son nom <strong className="text-yellow-500">Andal</strong> signifiant "le savoir" en pulaar l'agence s'appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
               </p>
             </div>
 
@@ -58,7 +26,7 @@ export const About = () => {
               <DialogTrigger asChild>
                 <Button 
                   size="lg"
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold smooth-transition hover-lift"
+                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold btn-animate"
                 >
                   En savoir plus
                 </Button>
@@ -76,8 +44,8 @@ export const About = () => {
           </div>
 
           {/* Team Image Side */}
-          <div className="relative flex flex-col items-center justify-center h-full">
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl relative overflow-hidden">
+          <div className="relative flex flex-col items-center justify-center h-full animate-slide-in-right">
+            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl relative overflow-hidden card-animate">
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 

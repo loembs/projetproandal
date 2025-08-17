@@ -4,13 +4,13 @@ export const Stats = () => {
   const stats = [
     {
       icon: TrendingUp,
-      number: "10+",
+      number: "12+",
       label: "Projets Réalisés",
       description: "Des campagnes créatives à fort impact"
     },
     {
       icon: Users,
-      number: "6+",
+      number: "10+",
       label: "Clients Satisfaits",
       description: "Marques et institutions de confiance"
     },
@@ -39,10 +39,10 @@ export const Stats = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in-up">
             <span className="gradient-text">ANDAL EN CHIFFRES</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             Des résultats concrets qui témoignent de notre expertise et de notre engagement
           </p>
         </div>
@@ -52,16 +52,16 @@ export const Stats = () => {
           {stats.map((stat, index) => (
             <div 
               key={index}
-              className="modern-card p-8 rounded-2xl text-center group hover-lift-modern"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="modern-card p-8 rounded-2xl text-center group hover-lift-modern card-animate"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 smooth-transition">
-                <stat.icon className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
+                <stat.icon className="w-8 h-8 text-white icon-animate" />
               </div>
 
               {/* Number */}
-              <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:text-yellow-600 smooth-transition">
+              <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:text-yellow-600">
                 {stat.number}
               </div>
 

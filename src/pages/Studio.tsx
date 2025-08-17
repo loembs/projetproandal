@@ -33,7 +33,7 @@ const Studio = () => {
           <img src="/images/ANDAL.png" alt="Logo ANDAL" className="h-20 w-auto" />
         </div>
         <div className="flex justify-center mb-4">
-          <a href="/" className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow transition">
+          <a href="/" className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow">
             ← Retour à l'accueil
           </a>
         </div>

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Animations épurées et professionnelles */
+/* Animations légères et performantes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -26,7 +26,7 @@
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -37,7 +37,7 @@
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
@@ -45,40 +45,52 @@
   }
 }
 
-/* Classes d'animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Classes d'animation légères */
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.8s ease-out forwards;
+  animation: slideInLeft 0.6s ease-out forwards;
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.8s ease-out forwards;
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* Transitions fluides */
 .smooth-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.smooth-transition-slow {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Effets de hover subtils */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 /* Scrollbar personnalisée */
@@ -99,7 +111,7 @@
   background: #f59e0b;
 }
 
-/* Stabilisation de l'écran - Réduction du vacillement */
+/* Stabilisation de l'écran */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -112,46 +124,25 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Réduction des animations pour éviter le vacillement */
-* {
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
+/* Classes d'échelle personnalisées */
+.scale-102 {
+  transform: scale(1.02);
 }
 
-/* Optimisation spécifique pour les éléments avec animations */
-.animate-fade-in-up,
-.animate-fade-in,
-.animate-slide-in-left,
-.animate-slide-in-right,
-.hover-lift,
-.smooth-transition {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.scale-105 {
+  transform: scale(1.05);
 }
 
-/* Optimisation des transitions pour éviter les saccades */
-.smooth-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
+/* Gradient text avec animation subtile */
+.gradient-text {
+  background: linear-gradient(135deg, #fbbf24, #3b82f6, #fbbf24);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
 }
 
-.smooth-transition-slow {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-}
-
-/* Stabilisation des animations de hover */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform, box-shadow;
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Réduction de l'intensité des animations de gradient */
 @keyframes gradientShift {
   0%, 100% {
     background-position: 0% 50%;
@@ -161,167 +152,61 @@ body {
   }
 }
 
-.bg-gradient-to-r {
-  background-size: 200% 200%;
-  animation: gradientShift 5s ease infinite;
-}
-
-/* Classes d'échelle personnalisées pour des animations plus subtiles */
-.scale-102 {
-  transform: scale(1.02);
-}
-
-.scale-105 {
-  transform: scale(1.05);
-}
-
-/* Animations dynamiques pour rendre le site plus vivant */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in-scale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes rotate-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Classes d'animation dynamiques */
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.6s ease-out forwards;
-}
-
-.animate-fade-in-scale {
-  animation: fade-in-scale 0.5s ease-out forwards;
-}
-
-.animate-rotate-slow {
-  animation: rotate-slow 20s linear infinite;
-}
-
-/* Transitions dynamiques pour les éléments interactifs */
-.dynamic-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.dynamic-hover:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* Animation pour les cartes au scroll */
-.card-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.card-animate.animate-in {
+/* Modern Card Effects */
+.modern-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 1;
-  transform: translateY(0);
-}
-
-/* Assurer la visibilité des éléments du portfolio */
-.portfolio-item {
-  opacity: 1;
-  visibility: visible;
   transform: translateY(0);
   transition: all 0.3s ease;
 }
 
-.portfolio-item.animate-in {
+.modern-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* Hover Effects */
+.hover-lift-modern {
+  transition: all 0.3s ease;
+}
+
+.hover-lift-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation d'apparition au scroll */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.scroll-animate.animate-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Animation douce pour l'apparition */
-.portfolio-item {
-  animation: fadeInUp 0.5s ease-out forwards;
+/* Animation pour les icônes */
+.icon-animate {
+  transition: all 0.3s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Garantir la visibilité du contenu du portfolio */
-.portfolio-item .p-6,
-.portfolio-item h3,
-.portfolio-item p,
-.portfolio-item span {
-  opacity: 1 !important;
-  visibility: visible !important;
-  z-index: 10;
-}
-
-/* Assurer que les images restent visibles */
-.portfolio-item img {
-  opacity: 1 !important;
-  visibility: visible !important;
+.icon-animate:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 /* Animation pour les boutons */
-.btn-dynamic {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.btn-animate {
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.btn-dynamic::before {
+.btn-animate::before {
   content: '';
   position: absolute;
   top: 0;
@@ -332,408 +217,18 @@ body {
   transition: left 0.5s;
 }
 
-.btn-dynamic:hover::before {
+.btn-animate:hover::before {
   left: 100%;
 }
 
-.btn-dynamic:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+/* Animation pour les cartes */
+.card-animate {
+  transition: all 0.4s ease;
 }
 
-/* Animation pour les images */
-.img-dynamic {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.img-dynamic:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-/* Animation pour les textes */
-.text-dynamic {
-  transition: all 0.3s ease;
-}
-
-.text-dynamic:hover {
-  color: #fbbf24;
-  transform: translateX(5px);
-}
-
-/* Animation pour les icônes */
-.icon-dynamic {
-  transition: all 0.3s ease;
-}
-
-.icon-dynamic:hover {
-  transform: rotate(10deg) scale(1.1);
-  color: #fbbf24;
-}
-
-/* Logo Animation Styles */
-.logo-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-text {
-  color: #000000;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.logo-text:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.3));
-}
-
-.letter {
-  display: inline-block;
-  opacity: 1;
-  transform: translateY(0) scale(1) rotate(0deg);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  margin: 0 2px;
-  color: #000000;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-}
-
-.letter.animate {
-  animation: letterAppear 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes letterAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.2) rotate(-10deg);
-    color: #fbbf24;
-    text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-    color: #000000;
-    text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-  }
-}
-
-@keyframes letterAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.2) rotate(-10deg);
-    color: #fbbf24;
-    text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    color: #000000;
-    text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-  }
-}
-
-/* Logo switch animation keyframes */
-@keyframes logoSwitch {
-  0% {
-    transform: scale(1) rotate(0deg);
-    filter: brightness(1);
-  }
-  25% {
-    transform: scale(1.1) rotate(5deg);
-    filter: brightness(1.2) drop-shadow(0 0 10px rgba(251, 191, 36, 0.5));
-  }
-  50% {
-    transform: scale(0.9) rotate(-5deg);
-    filter: brightness(0.8) drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
-  }
-  75% {
-    transform: scale(1.05) rotate(0deg);
-    filter: brightness(1.1) drop-shadow(0 0 20px rgba(251, 191, 36, 0.3));
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    filter: brightness(1);
-  }
-}
-
-.logo-switch-animation {
-  animation: logoSwitch 0.7s ease-in-out;
-}
-
-/* Services Animation Enhancements */
-.service-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.5s;
-}
-
-.service-card:hover::before {
-  left: 100%;
-}
-
-/* Feature hover effect */
-.group\/feature:hover .w-2 {
-  transform: scale(1.5);
-  transition: transform 0.3s ease;
-}
-
-/* Gradient text animation */
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.bg-gradient-to-r {
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
-}
-
-/* Flag Wave Animation */
-@keyframes flagWave {
-  0%, 100% {
-    transform: rotate(-1deg) scale(1);
-  }
-  25% {
-    transform: rotate(0.5deg) scale(1.02);
-  }
-  50% {
-    transform: rotate(-0.5deg) scale(1.01);
-  }
-  75% {
-    transform: rotate(1deg) scale(1.02);
-  }
-}
-
-.flag-wave {
-  animation: flagWave 3s ease-in-out infinite;
-  transform-origin: left center;
-}
-
-/* Flag hover effect */
-.flag-wave:hover {
-  animation-duration: 1.5s;
-  filter: brightness(1.1);
-}
-
-/* Modern Transitions inspired by Mood Production */
-@keyframes slideInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(80px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes floatUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes slideInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Modern Section Transitions */
-.section-transition {
-  opacity: 0;
-  transform: translateY(80px);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-transition.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section-transition-left {
-  opacity: 0;
-  transform: translateX(-80px);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-transition-left.animate-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.section-transition-right {
-  opacity: 0;
-  transform: translateX(80px);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-transition-right.animate-in {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.section-transition-scale {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.section-transition-scale.animate-in {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Modern Animation Classes */
-.animate-float-up {
-  animation: floatUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-/* Stagger Animation for Lists */
-.stagger-item {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.stagger-item.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hover Effects */
-.hover-lift-modern {
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.hover-lift-modern:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* Gradient Text Animation */
-.gradient-text {
-  background: linear-gradient(135deg, #fbbf24, #3b82f6, #fbbf24);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease infinite;
-}
-
-/* Modern Card Effects */
-.modern-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.modern-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-  border-color: rgba(251, 191, 36, 0.3);
-}
-
-/* Service Card Visibility */
-.service-card {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.card-animate:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */

@@ -32,14 +32,14 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+    <nav className={`fixed top-0 w-full z-50 ${
       isScrolled 
         ? "bg-white/95 backdrop-blur-md shadow-lg" 
         : "bg-transparent"
     }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className={`text-2xl font-bold transition-colors duration-300 ${
+          <div className={`text-2xl font-bold ${
             isScrolled ? "text-black" : "text-white"
           }`}>
             <img src="/images/ANDALreativenoir.png" alt="Logo ANDAL" className="h-20 w-auto" />
@@ -55,7 +55,7 @@ export const Navigation = () => {
                   e.preventDefault();
                   handleSmoothScroll(item.href);
                 }}
-                className={`font-medium tracking-wide smooth-transition hover:text-yellow-400 ${
+                className={`font-medium tracking-wide hover:text-yellow-400 ${
                   isScrolled ? "text-gray-800" : "text-white"
                 }`}
               >
@@ -64,7 +64,7 @@ export const Navigation = () => {
             ))}
             <a
               href="/devis"
-              className={`px-6 py-2 font-medium tracking-wide smooth-transition hover-lift rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white
+              className={`px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white
                 ${isScrolled 
                   ? "bg-black hover:bg-gray-800 text-white" 
                   : "bg-yellow-400 hover:bg-yellow-500 text-black"}
@@ -78,7 +78,7 @@ export const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className={`md:hidden smooth-transition ${
+            className={`md:hidden ${
               isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/20"
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -89,7 +89,7 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-xl border border-gray-100 animate-fade-in-up">
+          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-xl border border-gray-100">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -99,19 +99,17 @@ export const Navigation = () => {
                   handleSmoothScroll(item.href);
                   setIsMobileMenuOpen(false);
                 }}
-                className="block px-4 py-3 text-gray-800 hover:text-yellow-400 hover:bg-gray-50 smooth-transition"
+                className="block px-4 py-3 text-gray-800 hover:text-yellow-400 hover:bg-gray-50"
               >
                 {item.label}
               </a>
             ))}
-            <div className="px-4 pt-2">
-              <a
-                href="/devis"
-                className={`w-full bg-black hover:bg-gray-800 text-white px-6 py-2 font-medium tracking-wide smooth-transition hover-lift rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white`}
-              >
-                Devis gratuit
-              </a>
-            </div>
+            <a
+              href="/devis"
+              className={`w-full bg-black hover:bg-gray-800 text-white px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white`}
+            >
+              Prendre rendez-vous
+            </a>
           </div>
         )}
       </div>
