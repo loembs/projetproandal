@@ -4,9 +4,9 @@ const GrilleTarifaire = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-white to-blue-100 flex flex-col items-center py-10">
       <img src="/images/ANDAL.png" alt="Logo ANDAL" className="h-20 w-auto mb-6" />
-      <a href="/studio" className="mb-8 inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow">← Retour au studio</a>
+      <a href="/studio" className="mb-8 inline-block bg-[#FBAB3F] hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow">← Retour au studio</a>
       <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-black drop-shadow-lg tracking-tight">Grille tarifaire du Studio</h1>
-      <div className="w-full max-w-4xl h-[80vh] rounded-3xl border-4 border-yellow-400 bg-white shadow-2xl overflow-hidden">
+      <div className="w-full max-w-4xl h-[80vh] rounded-3xl border-4 border-[#FBAB3F] bg-white shadow-2xl overflow-hidden">
         <iframe
           src="/images/Grilles%20tarifaires%20Andal%20Cre%CC%81ative%20Studio.pdf"
           title="Grille tarifaire Andal Creative Studio"

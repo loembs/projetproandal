@@ -40,7 +40,7 @@ export const Values = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#FBAB3F] to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
                   <value.icon className="w-8 h-8 text-white icon-animate" />
                 </div>
                 
@@ -64,7 +64,7 @@ export const Values = () => {
 Avec des antennes basées à Dakar, Douala et Abidjan, Andal Creative déploie ses projets à l'échelle régionale, en intégrant les réalités et sensibilités locales.
 Nous collaborons avec des marques ambitieuses, africaines et internationales, désireuses de créer des récits puissants, portés par la créativité et enracinés dans leur identité."
             </blockquote>
-            <cite className="text-lg font-semibold text-yellow-400">
+            <cite className="text-lg font-semibold text-[#FBAB3F]">
               — Mourzanatou Ousmanou, Fondatrice
             </cite>
           </div>

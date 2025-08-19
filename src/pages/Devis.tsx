@@ -50,7 +50,7 @@ export default function Devis() {
     <div className="min-h-screen w-full bg-gradient-to-br from-yellow-100 via-white to-blue-100 flex flex-col">
       {/* Bouton retour */}
       <div className="absolute top-6 left-6">
-        <a href="/" className="inline-block bg-white/80 hover:bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg shadow border border-yellow-300">
+        <a href="/" className="inline-block bg-white/80 hover:bg-[#FBAB3F] text-black font-semibold px-4 py-2 rounded-lg shadow border border-yellow-300">
           ← Retour à l'accueil
         </a>
       </div>
@@ -59,13 +59,13 @@ export default function Devis() {
           {/* Onglets */}
           <div className="flex mb-8">
             <button
-              className={`flex-1 py-3 rounded-l-xl font-bold text-[15px] ${tab === TAB_RDV ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-l-xl font-bold text-[15px] ${tab === TAB_RDV ? 'bg-[#FBAB3F] text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
               onClick={() => setTab(TAB_RDV)}
             >
               Prendre un RDV Zoom
             </button>
             <button
-              className={`flex-1 py-3 rounded-r-xl font-bold text-[15px] ${tab === TAB_DEMANDE ? 'bg-yellow-400 text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-r-xl font-bold text-[15px] ${tab === TAB_DEMANDE ? 'bg-[#FBAB3F] text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
               onClick={() => setTab(TAB_DEMANDE)}
             >
               Envoyer une demande
@@ -121,17 +121,17 @@ export default function Devis() {
                 {error && <div className="text-red-600 text-center">{error}</div>}
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Email</label>
-                  <input name="email" type="email" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-yellow-400" />
+                  <input name="email" type="email" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-[#FBAB3F]" />
                 </div>
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Nom de la société</label>
-                  <input name="societe" type="text" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-yellow-400" />
+                  <input name="societe" type="text" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-[#FBAB3F]" />
                 </div>
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Décris ton besoin</label>
-                  <textarea name="besoin" required className="w-full border border-yellow-200 rounded px-3 py-2 min-h-[100px] focus:ring-2 focus:ring-yellow-400" />
+                  <textarea name="besoin" required className="w-full border border-yellow-200 rounded px-3 py-2 min-h-[100px] focus:ring-2 focus:ring-[#FBAB3F]" />
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 rounded-xl shadow text-lg">
+                <button type="submit" disabled={loading} className="w-full bg-[#FBAB3F] hover:bg-yellow-500 text-black font-bold py-3 rounded-xl shadow text-lg">
                   {loading ? "Envoi en cours..." : "Envoyer la demande"}
                 </button>
               </form>

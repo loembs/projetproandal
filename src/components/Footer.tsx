@@ -11,20 +11,22 @@ export const Footer = () => {
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="md:col-span-2">
-            <h3 className="text-4xl font-bold mb-6 text-yellow-400 animate-fade-in-up">
+          <div className="md:col-span-2 ">
+            <div className="flex items-start space-x-6">
+            <h3 className="text-4xl font-bold mb-6 text-[#FBAB3F] animate-fade-in-up flex-shrink-0">
               <img src="/images/andalblanc.png" alt="Logo ANDAL" className="h-20 w-auto inline" />
             </h3>
             <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Votre partenaire créatif pour transformer votre vision en réalité digitale. 
               Nous vous accompagnons vers l'excellence.
             </p>
+            </div>
             <div className="flex space-x-4">
               <Button 
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black  text-white btn-animate"
+                className="bg-black  text-white btn-animate border-black"
               >
                 <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -39,7 +41,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black  text-white btn-animate"
+                className="bg-black  text-white btn-animate  border-black"
               >
                 <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -53,7 +55,7 @@ export const Footer = () => {
                 asChild
                 variant="outline" 
                 size="sm"
-                className="bg-black  text-white btn-animate"
+                className="bg-black  text-white btn-animate border-black"
               >
                 <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
                 <img
@@ -70,11 +72,11 @@ export const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
             <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-yellow-400">Marketing Digital</a></li>
-              <li><a href="#" className="hover:text-yellow-400">Production de Contenus</a></li>
-              <li><a href="#" className="hover:text-yellow-400">Événements</a></li>
-              <li><a href="#" className="hover:text-yellow-400">Location  studio créatif </a></li>
-              <li><a href="#" className="hover:text-yellow-400">Création de sites web modernes</a></li>
+              <li><a href="#" className="hover:text-[#FBAB3F]">Marketing Digital</a></li>
+              <li><a href="#" className="hover:text-[#FBAB3F]">Production de Contenus</a></li>
+              <li><a href="#" className="hover:text-[#FBAB3F]">Événements</a></li>
+              <li><a href="#" className="hover:text-[#FBAB3F]">Location  studio créatif </a></li>
+              <li><a href="#" className="hover:text-[#FBAB3F]">Création de sites web modernes</a></li>
             </ul>
           </div>
 
@@ -103,7 +105,7 @@ export const Footer = () => {
               aria-label="Retour en haut"
             >
               <svg
-                className="w-8 h-8 text-yellow-400 hover:rotate-180 transition-transform duration-500"
+                className="w-8 h-8 text-[#FBAB3F] hover:rotate-180 transition-transform duration-500"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

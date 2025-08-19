@@ -46,7 +46,7 @@ const Index = () => {
       <Hero />
       <section className="py-16 bg-gradient-to-br from-yellow-50 via-white to-blue-50">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-gray-900 tracking-tight drop-shadow-lg animate-fade-in-up">
-          Présents dans 3 pays d'Afrique
+          Présente dans 3 pays d'Afrique
         </h2>
         
         {/* Carousel Container */}
@@ -93,7 +93,7 @@ const Index = () => {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                  idx === currentIndex ? 'bg-yellow-400 scale-125' : 'bg-gray-300 hover:bg-gray-400'
+                  idx === currentIndex ? 'bg-[#FBAB3F] scale-125' : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />
             ))}

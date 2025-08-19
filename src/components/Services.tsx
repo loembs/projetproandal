@@ -105,9 +105,9 @@ export const Services = () => {
     <section id="services" className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden section-transition-scale">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBAB3F] rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-600 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-r from-yellow-400 to-blue-600 rounded-full blur-3xl"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-[#FBAB3F] rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -120,11 +120,9 @@ export const Services = () => {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Une gamme complète de services <span className="font-semibold text-yellow-600">innovants</span> pour propulser votre entreprise 
-            vers le <span className="font-semibold text-blue-600">succès digital</span> et créatif
+            Une gamme complète de services <span className="font-semibold text-[#FBAB3F]">innovants</span> et <span className="font-semibold text-[#FBAB3F]">créatifs</span> pour propulser votre marque ou entreprise
           </p>
         </div>
-
         {/* Services Grid - Mobile-First Design */}
         <div className="space-y-8 md:space-y-12 mb-20 max-w-6xl mx-auto">
           {services.map((service, index) => (
@@ -138,7 +136,7 @@ export const Services = () => {
               <div className="flex-shrink-0 w-full lg:w-2/5 h-48 md:h-64 relative overflow-hidden">
                 {/* Background Image/Video */}
                 {service.title === "Stratégie & conseil" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <img 
                       src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png" 
                       alt="Stratégie et conseil"
@@ -148,7 +146,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Production de contenus" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <video
                       src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1754577767/crea_contenu_jpdaqj.mp4"
                       autoPlay
@@ -161,7 +159,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Marketing digital" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <img 
                       src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                       alt="Marketing digital"
@@ -171,7 +169,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Branding & design" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <img 
                       src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                       alt="Branding et design"
@@ -181,7 +179,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Développement web & digital" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <img 
                       src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                       alt="Développement web"
@@ -191,7 +189,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Événementiel & expérience de marque" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <img 
                       src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                       alt="Événementiel"
@@ -201,7 +199,7 @@ export const Services = () => {
                 )}
                 
                 {service.title === "Studio créatif intégré" && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-blue-600/30">
+                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
                     <video
                       src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1754577804/studio_unspjq.mp4"
                       autoPlay
@@ -253,7 +251,7 @@ export const Services = () => {
                       key={idx} 
                       className="stagger-item flex items-center space-x-2 md:space-x-3 p-2 rounded-lg bg-gray-50 hover:bg-yellow-50 group/feature"
                     >
-                                              <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-yellow-400 rounded-full flex-shrink-0 group-hover/feature:scale-150"></div>
+                                              <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-[#FBAB3F] rounded-full flex-shrink-0 group-hover/feature:scale-150"></div>
                       <span className="text-xs md:text-sm text-gray-700 group-hover/feature:text-black font-medium">
                         {feature}
                       </span>
@@ -264,7 +262,7 @@ export const Services = () => {
                 {/* Action Button - Mobile Optimized */}
                   <Button 
                     asChild
-                    className="w-full md:w-auto bg-gradient-to-r from-yellow-400 to-blue-600 hover:from-yellow-500 hover:to-blue-700 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg group-hover:shadow-lg"
+                    className="w-full md:w-auto bg-[#FBAB3F] hover:from-yellow-500 hover:to-blue-700 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg group-hover:shadow-lg"
                   >
                     <a 
                       href="https://www.instagram.com/andal.creative/" 
@@ -281,7 +279,7 @@ export const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-yellow-400 to-blue-600 rounded-3xl p-12 text-white relative overflow-hidden">
+        <div className="text-center bg-[#FBAB3F] rounded-3xl p-12 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative z-10">
             <h3 className="text-4xl font-bold mb-4">

@@ -33,7 +33,7 @@ const Studio = () => {
           <img src="/images/ANDAL.png" alt="Logo ANDAL" className="h-20 w-auto" />
         </div>
         <div className="flex justify-center mb-4">
-          <a href="/" className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow">
+          <a href="/" className="inline-block bg-[#FBAB3F] hover:bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold shadow">
             ← Retour à l'accueil
           </a>
         </div>
@@ -65,7 +65,7 @@ const Studio = () => {
             <h2 className="text-3xl font-semibold text-black mb-6 text-center">Services proposés</h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
               {studioServices.map((service, idx) => (
-                <li key={idx} className="bg-yellow-50 border-l-4 border-yellow-400 px-6 py-4 rounded text-lg text-gray-800 shadow-sm">
+                <li key={idx} className="bg-yellow-50 border-l-4 border-[#FBAB3F] px-6 py-4 rounded text-lg text-gray-800 shadow-sm">
                   {service}
                 </li>
               ))}
@@ -90,7 +90,7 @@ const Studio = () => {
               asChild
               variant="outline"
               size="sm"
-              className="border-yellow-400 text-black hover:bg-yellow-400 hover:text-black"
+              className="border-[#FBAB3F] text-black hover:bg-[#FBAB3F] hover:text-black"
             >
               <a href="https://www.instagram.com/andal.creative.studio/" target="_blank" rel="noopener noreferrer">
               <img

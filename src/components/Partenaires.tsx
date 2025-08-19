@@ -1,7 +1,39 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useEffect } from "react";
+
+// Styles CSS personnalisés pour supprimer le blanc
+const removeWhiteStyles = `
+  .remove-white-bg {
+    filter: brightness(1.8) contrast(3) saturate(2) hue-rotate(0deg) !important;
+    mix-blend-mode: multiply !important;
+    background: transparent !important;
+  }
+  
+  .remove-white-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0,0,0,0.1) 50%, transparent 70%);
+    pointer-events: none;
+  }
+`;
 
 export const Partenaires = () => {
+  // Injection des styles CSS personnalisés
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = removeWhiteStyles;
+    document.head.appendChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const logos = [
     { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461621/t%C3%A9l%C3%A9chargement_onismw.png", name: "Betclic" },
     { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461608/t%C3%A9l%C3%A9chargement_ycv3el.jpg", name: "Kapreece" },
@@ -26,8 +58,8 @@ export const Partenaires = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-blue-900 relative overflow-hidden">
       {/* Effet subtil en arrière-plan */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-yellow-400/10 to-blue-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-500/10 to-yellow-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FBAB3F]/10 to-blue-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-500/10 to-[#FBAB3F]/10 rounded-full blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section titre avec poignée de main */}
@@ -40,21 +72,35 @@ export const Partenaires = () => {
             </span>
           </h2>
           
-          <div className="w-full mb-12 relative">
+          <div className="w-full mb-12 relative overflow-hidden">
             <div className="relative group">
-              <img 
-                src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755190598/Poign%C3%A9e_de_main_%C3%A9l%C3%A9gante-removebg-preview_mbpbrx.png" 
-                alt="Poignée de main élégante" 
-                className="w-screen h-auto object-cover drop-shadow-xl group-hover:scale-105"
-                style={{ 
-                  objectPosition: 'center',
-                  position: 'relative',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '110vw',
-                  zIndex: '-1'
-                }}
-              />
+              <div className="relative w-screen h-auto overflow-hidden">
+                {/* <img 
+                  src="/images/main.jpg" 
+                  alt="Poignée de main élégante" 
+                  className="w-screen h-auto object-cover drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                  style={{ 
+                    objectPosition: 'center',
+                    position: 'relative',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '130vw',
+                    zIndex: '1',
+                    filter: 'brightness(1.2) contrast(1.3) saturate(1.1)',
+                    mixBlendMode: 'darken'
+                  }}
+                /> */}
+                {/* Overlay pour masquer le blanc */}
+                <div 
+                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"
+                  style={{
+                    background: 'linear-gradient(45deg, transparent 0%, rgba(0,0,0,0.3) 50%, transparent 100%)'
+                  }}
+                />
+              </div>
+              {/* Effet de bras qui sortent de l'écran */}
+              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/30 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
             </div>
           </div>
         </div>
@@ -69,14 +115,14 @@ export const Partenaires = () => {
                 {group.map((logo, j) => (
                       <div 
                         key={j} 
-                        className="group flex flex-col items-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-yellow-400/30"
+                        className="group flex flex-col items-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30"
                       >
                         <img 
                           src={logo.src} 
                           alt={logo.name} 
                           className="h-32 w-32 object-contain mb-3 transform group-hover:scale-110 rounded-xl" 
                         />
-                        <span className="text-base font-semibold text-white text-center group-hover:text-yellow-400">{logo.name}</span>
+                        <span className="text-base font-semibold text-white text-center group-hover:text-[#FBAB3F]">{logo.name}</span>
                   </div>
                 ))}
                   </div>

@@ -28,7 +28,7 @@ export const Navigation = () => {
     { label: "Accueil", href: "#hero" },
     { label: "À propos", href: "#about" },
     { label: "Services", href: "#services" },
-    { label: "Contact", href: "#footer" },
+    { label: "Contacts", href: "#footer" },
   ];
 
   return (
@@ -55,7 +55,7 @@ export const Navigation = () => {
                   e.preventDefault();
                   handleSmoothScroll(item.href);
                 }}
-                className={`font-medium tracking-wide hover:text-yellow-400 ${
+                className={`font-medium tracking-wide hover:text-[#FBAB3F] ${
                   isScrolled ? "text-gray-800" : "text-white"
                 }`}
               >
@@ -64,10 +64,10 @@ export const Navigation = () => {
             ))}
             <a
               href="/devis"
-              className={`px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white
+              className={`px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#FBAB3F] focus:ring-offset-2 focus:ring-offset-white
                 ${isScrolled 
-                  ? "bg-black hover:bg-gray-800 text-white" 
-                  : "bg-yellow-400 hover:bg-yellow-500 text-black"}
+                  ? "bg-[#1B03AD] hover:bg-[#150299] text-white" 
+                  : "bg-[#FBAB3F] hover:bg-[#e69a2e] text-black"}
               `}
             >
               Prendre rendez-vous 
@@ -99,14 +99,14 @@ export const Navigation = () => {
                   handleSmoothScroll(item.href);
                   setIsMobileMenuOpen(false);
                 }}
-                className="block px-4 py-3 text-gray-800 hover:text-yellow-400 hover:bg-gray-50"
+                className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
               >
                 {item.label}
               </a>
             ))}
             <a
               href="/devis"
-              className={`w-full bg-black hover:bg-gray-800 text-white px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-white`}
+              className={`w-full bg-[#1B03AD] hover:bg-[#150299] text-white px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#FBAB3F] focus:ring-offset-2 focus:ring-offset-white`}
             >
               Prendre rendez-vous
             </a>
