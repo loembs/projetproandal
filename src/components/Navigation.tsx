@@ -104,6 +104,33 @@ export const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            
+            {/* Séparateur */}
+            <div className="border-t border-gray-200 my-2"></div>
+            
+            {/* Options du Hero */}
+            <a
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                handleSmoothScroll("#services");
+                setIsMobileMenuOpen(false);
+              }}
+              className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
+            >
+              Découvrir nos services
+            </a>
+            <a
+              href="/studio"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
+            >
+              Découvrir notre studio
+            </a>
+            
+            {/* Séparateur */}
+            <div className="border-t border-gray-200 my-2"></div>
+            
             <a
               href="/devis"
               className={`w-full bg-[#1B03AD] hover:bg-[#150299] text-white px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#FBAB3F] focus:ring-offset-2 focus:ring-offset-white`}

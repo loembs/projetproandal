@@ -52,7 +52,8 @@ export const Services = () => {
         "Community management",
         "Création et gestion de campagnes sponsorisées (Meta, Google Ads, etc.)",
         "E-mailing & automation marketing",
-        "Reporting & analyse des performances"
+        "Reporting & analyse des performances",
+        "Marketing d'influence "
       ]
     },
     {

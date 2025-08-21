@@ -1,35 +1,53 @@
-import { TrendingUp, Users, Award, Star } from "lucide-react";
+import { BarChart3, Heart, MapPin, ThumbsUp } from "lucide-react";
+import { useCounter } from "@/hooks/use-counter";
+import { useInView } from "react-intersection-observer";
 
 export const Stats = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
   const stats = [
     {
-      icon: TrendingUp,
-      number: "12+",
+      icon: BarChart3,
+      number: 12,
+      suffix: "+",
       label: "Projets Réalisés",
       description: "Des campagnes créatives à fort impact"
     },
     {
-      icon: Users,
-      number: "10+",
+      icon: Heart,
+      number: 10,
+      suffix: "+",
       label: "Clients Satisfaits",
       description: "Marques et institutions de confiance"
     },
     {
-      icon: Award,
-      number: "3",
+      icon: MapPin,
+      number: 3,
+      suffix: "",
       label: "Pays d'Afrique",
       description: "Présence panafricaine établie"
     },
     {
-      icon: Star,
-      number: "98%",
+      icon: ThumbsUp,
+      number: 98,
+      suffix: "%",
       label: "Taux de Satisfaction",
       description: "Excellence reconnue par nos clients"
     }
   ];
 
+  // Hooks pour les compteurs
+  const count1 = useCounter(inView ? stats[0].number : 0, 2000);
+  const count2 = useCounter(inView ? stats[1].number : 0, 2000);
+  const count3 = useCounter(inView ? stats[2].number : 0, 2000);
+  const count4 = useCounter(inView ? stats[3].number : 0, 2000);
+
+  const counts = [count1, count2, count3, count4];
+
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBAB3F] rounded-full blur-3xl"></div>
@@ -56,14 +74,14 @@ export const Stats = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-[#FBAB3F] to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
+              <div className="w-16 h-16 bg-[#FBAB3F] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
                 <stat.icon className="w-8 h-8 text-white icon-animate" />
               </div>
 
-              {/* Number */}
-              <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:text-yellow-600">
-                {stat.number}
-              </div>
+                             {/* Number */}
+               <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:text-yellow-600">
+                 {counts[index]}{stat.suffix}
+               </div>
 
               {/* Label */}
               <h3 className="text-lg font-semibold text-gray-800 mb-2">

@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Lightbulb, Award, Zap } from "lucide-react";
+import { Lightbulb, Star, Globe } from "lucide-react";
 
 export const Values = () => {
   const values = [
@@ -10,12 +10,12 @@ export const Values = () => {
     },
     {
       title: "Excellence",
-      icon: Award,
+      icon: Star,
       description: "Nous nous engageons à livrer des résultats d'exception en maintenant les plus hauts standards de qualité."
     },
     {
       title: "Adaptabilité",
-      icon: Zap,
+      icon: Globe,
       description: "Nous adaptons nos stratégies aux spécificités locales et aux besoins uniques de chaque client."
     }
   ];
@@ -40,7 +40,7 @@ export const Values = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#FBAB3F] to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
+                <div className="w-16 h-16 bg-[#FBAB3F] rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
                   <value.icon className="w-8 h-8 text-white icon-animate" />
                 </div>
                 

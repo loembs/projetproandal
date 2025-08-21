@@ -33,7 +33,7 @@ export const Hero = () => {
           {/* <span className="block gradient-text font-bold -mt-32 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>CREATIVE</span> */}
         </h1>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up absolute bottom-16 sm:bottom-64 left-[19%] transform -translate-x-1/2 z-20" style={{ animationDelay: '0.8s' }}>
+        <div className="hidden sm:flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up absolute bottom-16 sm:bottom-64 left-[17%] transform -translate-x-1/2 z-20" style={{ animationDelay: '0.8s' }}>
           <Button 
             size="lg" 
             className="bg-[#FBAB3F] hover:bg-[#e69a2e] text-black px-8 py-4 text-lg font-semibold btn-animate"

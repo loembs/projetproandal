@@ -23,6 +23,7 @@ const studioServices = [
   "Maquillage professionnel",
   "Shooting photo en studio",
   "Enregistrement de podcast",
+  "Pose perruque",
 ];
 
 const Studio = () => {
