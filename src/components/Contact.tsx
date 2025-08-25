@@ -38,7 +38,7 @@ export const Contact = () => {
       category: 'print',
       title: 'Sweeties - Print & Editorial Design',
       description: 'Cartes de visite et cartes de fidélité pour pâtisserie avec design gourmand, couleurs chaudes et typographie appétissante.',
-      image: 'https://res.cloudinary.com/dprbhsvxl/image/upload/v1755400248/T01_iuyo2o.png',
+      image: 'https://res.cloudinary.com/dlna2kuo1/image/upload/v1756135162/B_card_02_copie_cckym6.jpg',
     },
     {
       id: 5,
@@ -59,14 +59,14 @@ export const Contact = () => {
       category: 'print',
       title: 'Polo - Design Textile',
       description: 'Design de polo personnalisé avec logo brodé, motifs géométriques modernes et couleurs harmonieuses pour une identité de marque forte.',
-      image: 'https://res.cloudinary.com/dprbhsvxl/image/upload/v1755401873/polo_w1hxxf.png',
+      image: 'https://res.cloudinary.com/dlna2kuo1/image/upload/v1756134935/capture12_nbhhew.png',
     },
     {
       id: 8,
       category: 'creation-de-contenu',
       title: 'Réseaux Sociaux - Stratégie Marketing',
       description: 'Campagne de contenu pour réseaux sociaux avec résultats exceptionnels : augmentation de 150% de l\'engagement et 200% de nouveaux abonnés.',
-      image: 'https://res.cloudinary.com/dprbhsvxl/image/upload/v1755401872/reseauresultats02_ujlmo1.png',
+      image: 'https://res.cloudinary.com/dlna2kuo1/image/upload/v1756134930/capture_xb1mfb.png',
     },
     {
       id: 9,

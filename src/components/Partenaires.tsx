@@ -65,7 +65,7 @@ export const Partenaires = () => {
         {/* Section titre avec poignée de main */}
         <div className="text-center mb-16">
           <h2 className="text-6xl md:text-7xl font-bold mb-12 tracking-tight">
-            <span className="text-white">ils nous ont fait</span>
+            <span className="text-white">Ils nous ont fait</span>
             <br />
             <span className="gradient-text px-6 py-3 rounded-xl shadow-lg inline-block mt-4">
               confiance
@@ -115,14 +115,27 @@ export const Partenaires = () => {
                 {group.map((logo, j) => (
                       <div 
                         key={j} 
-                        className="group flex flex-col items-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30"
+                        className="group flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30 min-h-[200px]"
                       >
-                        <img 
-                          src={logo.src} 
-                          alt={logo.name} 
-                          className="h-32 w-32 object-contain mb-3 transform group-hover:scale-110 rounded-xl" 
-                        />
-                        <span className="text-base font-semibold text-white text-center group-hover:text-[#FBAB3F]">{logo.name}</span>
+                                                 <div className="flex flex-col items-center justify-center w-full h-full relative">
+                           <div className="flex-1 flex items-center justify-center w-full relative">
+                             <div className="w-32 h-32 flex items-center justify-center relative">
+                               <img 
+                                 src={logo.src} 
+                                 alt={logo.name} 
+                                 className={`absolute inset-0 m-auto max-w-full max-h-full w-auto h-auto object-contain transform group-hover:scale-110 rounded-xl ${
+                                   logo.name === "Laundry Boy" ? "translate-x-[-8px]" : 
+                                   logo.name === "Adidiar" ? "translate-x-[8px]" : ""
+                                 }`}
+                               />
+                             </div>
+                           </div>
+                           <div className="w-full text-center mt-4">
+                             <span className={`text-base font-semibold text-white group-hover:text-[#FBAB3F] ${
+                               logo.name === "Laundry Boy" ? "translate-x-[-8px]" : ""
+                             }`}>{logo.name}</span>
+                           </div>
+                         </div>
                   </div>
                 ))}
                   </div>
