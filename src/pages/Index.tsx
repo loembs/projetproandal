@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { Stats } from "@/components/Stats";
 import { Partenaires } from "@/components/Partenaires";
+import { BrochureToast } from "@/components/ui/brochure-toast";
 import { Flag, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -39,6 +40,14 @@ const Index = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleBrochureDownload = () => {
+    // Téléchargement de la brochure
+    const link = document.createElement('a');
+    link.href = '/ANDAL CREATIVE _ Agence 360.pdf';
+    link.download = 'ANDAL CREATIVE - Agence 360.pdf';
+    link.click();
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -107,6 +116,14 @@ const Index = () => {
       <Values />
       <Contact />
       <Footer />
+      
+      {/* Toast de notification pour la brochure */}
+      <BrochureToast
+        message=" Découvrez Andal Creative en détail ! Notre brochure complète révèle nos services, nos réalisations . Téléchargez-la maintenant !"
+        cta="Télécharger la brochure"
+        delay={8000}
+        onDownload={handleBrochureDownload}
+      />
     </div>
   );
 };

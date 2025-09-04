@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Users } from "lucide-react";
+import { Users, Download } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 
 export const About = () => {
@@ -21,25 +21,39 @@ export const About = () => {
                 Fidèle à son nom <strong className="text-[#FBAB3F]">Andal</strong> signifiant "le savoir" en pulaar l'agence s'appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
               </p>
             </div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button 
-                  size="lg"
-                  className="bg-[#1B03AD] hover:bg-[#150299] text-white px-8 py-4 text-lg font-semibold btn-animate"
-                >
-                  En savoir plus
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-3xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center min-h-[70vh]">
-                <iframe
-                  src="/images/ANDAL CREATIVE PRESENTATION.pdf"
-                  title="Présentation Andal Creative"
-                  className="w-full h-[70vh] rounded-xl shadow-2xl bg-white"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                />
-              </DialogContent>
-            </Dialog>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button 
+                    size="lg"
+                    className="bg-[#1B03AD] hover:bg-[#150299] text-white px-8 py-4 text-lg font-semibold btn-animate"
+                  >
+                    En savoir plus
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center min-h-[70vh]">
+                  <iframe
+                    src="/images/ANDAL CREATIVE PRESENTATION.pdf"
+                    title="Présentation Andal Creative"
+                    className="w-full h-[70vh] rounded-xl shadow-2xl bg-white"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                  />
+                </DialogContent>
+              </Dialog>
+
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-2 border-[#FBAB3F] text-[#FBAB3F] hover:bg-[#FBAB3F] hover:text-white px-8 py-4 text-lg font-semibold btn-animate"
+                asChild
+              >
+                <a href="/ANDAL CREATIVE _ Agence 360.pdf" download="ANDAL CREATIVE - Agence 360.pdf">
+                  <Download className="mr-2 w-5 h-5" />
+                  Brochure
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* Team Image Side */}

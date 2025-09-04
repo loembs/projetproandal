@@ -103,27 +103,18 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden section-transition-scale">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBAB3F] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-600 rounded-full blur-3xl"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-[#FBAB3F] rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header Section - Mobile Optimized */}
-        <div className="text-center mb-16 md:mb-24">
-
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight animate-fade-in-up">
-            <span className="gradient-text">
+    <section id="services" className="py-16 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
             Nos Services
-            </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed px-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Une gamme complète de services <span className="font-semibold text-[#FBAB3F]">innovants</span> et <span className="font-semibold text-[#FBAB3F]">créatifs</span> pour propulser votre marque ou entreprise
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Découvrez notre gamme complète de services de communication 360° 
+            pour faire rayonner votre marque et stimuler votre performance.
           </p>
         </div>
+
         {/* Services Grid - Mobile-First Design */}
         <div className="space-y-8 md:space-y-12 mb-20 max-w-6xl mx-auto">
           {services.map((service, index) => (

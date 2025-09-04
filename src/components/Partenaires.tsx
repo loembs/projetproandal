@@ -113,24 +113,24 @@ export const Partenaires = () => {
                 <CarouselItem key={idx}>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {group.map((logo, j) => (
-                      <div 
-                        key={j} 
-                        className="group flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30 min-h-[200px]"
-                      >
-                                                 <div className="flex flex-col items-center justify-center w-full h-full relative">
-                           <div className="flex-1 flex items-center justify-center w-full relative">
-                             <div className="w-32 h-32 flex items-center justify-center relative">
-                               <img 
-                                 src={logo.src} 
-                                 alt={logo.name} 
-                                 className={`absolute inset-0 m-auto max-w-full max-h-full w-auto h-auto object-contain transform group-hover:scale-110 rounded-xl ${
-                                   logo.name === "Laundry Boy" ? "translate-x-[-8px]" : 
-                                   logo.name === "Adidiar" ? "translate-x-[8px]" : ""
-                                 }`}
-                               />
-                             </div>
+                                             <div 
+                         key={j} 
+                         className="group flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30 h-[250px]"
+                       >
+                                                 <div className="relative w-full h-full">
+                           {/* Logo positionné absolument au centre */}
+                           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 flex items-center justify-center">
+                             <img 
+                               src={logo.src} 
+                               alt={logo.name} 
+                               className={`max-w-full max-h-full w-auto h-auto object-contain transform group-hover:scale-110 rounded-xl ${
+                                 logo.name === "Laundry Boy" ? "translate-x-[-8px]" : 
+                                 logo.name === "Adidiar" ? "translate-x-[8px]" : ""
+                               }`}
+                             />
                            </div>
-                           <div className="w-full text-center mt-4">
+                           {/* Titre positionné absolument en bas */}
+                           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full text-center">
                              <span className={`text-base font-semibold text-white group-hover:text-[#FBAB3F] ${
                                logo.name === "Laundry Boy" ? "translate-x-[-8px]" : ""
                              }`}>{logo.name}</span>
