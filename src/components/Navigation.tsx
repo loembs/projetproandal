@@ -27,8 +27,9 @@ export const Navigation = () => {
   const navItems = [
     { label: "Accueil", href: "#hero" },
     { label: "Services", href: "#services" },
+    { label: "À propos", href: "#about" },
     { label: "Contacts", href: "#footer" },
-    { label: "À propos", href: "#about" }
+   
   ];
 
   return (
