@@ -84,10 +84,11 @@ export const Footer = () => {
           <div>
             <h4 className="text-xl font-semibold mb-6 text-white">Contacts</h4>
             <ul className="space-y-3 text-gray-300">
-              <li>+221 782800808</li>
-              <li>+237 682908439</li>
+              <li>+221 782800808 (Sénégal)</li>
+              <li>+237 682908439 (Cameroun)</li>
+              <li>+33 6 99 06 54 20 (France)</li>
               <li>contacts@andalcreative.com</li>
-              <li>Dakar, Sénégal  - Abidjan, Côte d'Ivoire - Douala, Cameroun</li>
+              <li>Dakar - Abidjan - Douala - Paris</li>
             </ul>
           </div>
         </div>

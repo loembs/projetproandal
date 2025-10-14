@@ -26,6 +26,11 @@ const countries = [
     name: "Côte d'Ivoire",
     city: "Abidjan",
     flag: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751464166/Flag_of_Ivory_Coast_2_to_1_ratio_ilxlvq.png"
+  },
+  {
+    name: "France",
+    city: "Paris",
+    flag: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
   }
 ];
 
@@ -55,7 +60,7 @@ const Index = () => {
       <Hero />
       <section className="py-16 bg-gradient-to-br from-yellow-50 via-white to-blue-50">
         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-10 text-gray-900 tracking-tight drop-shadow-lg animate-fade-in-up">
-          Présente dans 3 pays d'Afrique
+          Présente dans 4 pays
         </h2>
         
         {/* Carousel Container */}
