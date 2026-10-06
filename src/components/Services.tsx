@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import {
   Building,
   Calendar,
@@ -126,37 +125,6 @@ numbered.forEach((service, index) => {
 });
 
 export const Services = () => {
-  const rows = useRef<(HTMLDivElement | null)[]>([]);
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
-      const mid = window.innerHeight * 0.42;
-      let best = -1;
-      let bestDist = Infinity;
-      rows.current.forEach((el, index) => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < 80 || rect.top > window.innerHeight - 40) return;
-        const dist = Math.abs(rect.top + rect.height / 2 - mid);
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = index;
-        }
-      });
-      if (best < 0) return;
-      setActive((current) => (current === best ? current : best));
-    };
-
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
-    };
-  }, []);
-
   return (
     <section id="services" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
@@ -173,9 +141,8 @@ export const Services = () => {
         </Reveal>
 
         <div className="mt-14">
-          {numbered.map((service, index) => {
+          {numbered.map((service) => {
             const Icon = service.icon;
-            const current = active === index;
             return (
               <article key={service.title}>
                 {service.poleStart && (
@@ -185,9 +152,6 @@ export const Services = () => {
                   </h3>
                 )}
                 <div
-                  ref={(node) => {
-                    rows.current[index] = node;
-                  }}
                   tabIndex={0}
                   className="group relative overflow-hidden border-b border-black/10 py-6 outline-none md:px-5 md:py-7"
                 >
@@ -200,10 +164,10 @@ export const Services = () => {
                   />
                   <div className="relative z-10">
                     <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-12">
-                      <span className={`font-semibold tabular-nums text-black transition-all duration-500 md:col-span-1 ${current ? "text-base" : "text-sm text-black/40"}`}>
+                      <span className="text-sm font-semibold tabular-nums text-black md:col-span-1">
                         {service.number}
                       </span>
-                      <h4 className={`font-semibold tracking-tight text-black transition-all duration-500 ease-out md:col-span-6 ${current ? "text-3xl md:text-5xl" : "text-xl text-black/45 md:text-2xl"}`}>
+                      <h4 className="origin-left text-xl font-semibold tracking-tight text-black transition-transform duration-300 ease-out group-hover:scale-105 group-focus-visible:scale-105 md:col-span-6 md:text-3xl">
                         {service.title}
                       </h4>
                       <Icon className="h-5 w-5 justify-self-end text-black transition-transform duration-300 group-hover:scale-110 md:col-span-5" aria-hidden="true" />
