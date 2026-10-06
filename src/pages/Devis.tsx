@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -16,6 +16,14 @@ export default function Devis() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const previous = document.title;
+    document.title = "Prendre rendez-vous | Andal Creative";
+    return () => {
+      document.title = previous;
+    };
+  }, []);
 
   // Ouvre le widget Calendly (popup)
   const openCalendly = () => {
@@ -47,25 +55,25 @@ export default function Devis() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-yellow-100 via-white to-blue-100 flex flex-col">
+    <div className="min-h-screen w-full bg-white flex flex-col">
       {/* Bouton retour */}
       <div className="absolute top-6 left-6">
-        <a href="/" className="inline-block bg-white/80 hover:bg-[#FBAB3F] text-black font-semibold px-4 py-2 rounded-lg shadow border border-yellow-300">
+        <a href="/" className="inline-block bg-white hover:bg-neutral-100 text-black font-semibold px-4 py-2 rounded-lg shadow border border-black">
           ← Retour à l'accueil
         </a>
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <div className="bg-white/90 p-10 rounded-3xl shadow-2xl w-full max-w-lg space-y-8 border border-yellow-200">
+        <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-lg space-y-8 border border-black/10">
           {/* Onglets */}
           <div className="flex mb-8">
             <button
-              className={`flex-1 py-3 rounded-l-xl font-bold text-[15px] ${tab === TAB_RDV ? 'bg-[#FBAB3F] text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-l-xl font-bold text-[15px] ${tab === TAB_RDV ? 'bg-black text-white' : 'bg-white text-gray-500 border border-black/15'}`}
               onClick={() => setTab(TAB_RDV)}
             >
               Prendre un RDV Zoom
             </button>
             <button
-              className={`flex-1 py-3 rounded-r-xl font-bold text-[15px] ${tab === TAB_DEMANDE ? 'bg-[#FBAB3F] text-black' : 'bg-white text-gray-500 border border-yellow-200'}`}
+              className={`flex-1 py-3 rounded-r-xl font-bold text-[15px] ${tab === TAB_DEMANDE ? 'bg-black text-white' : 'bg-white text-gray-500 border border-black/15'}`}
               onClick={() => setTab(TAB_DEMANDE)}
             >
               Envoyer une demande
@@ -121,17 +129,17 @@ export default function Devis() {
                 {error && <div className="text-red-600 text-center">{error}</div>}
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Email</label>
-                  <input name="email" type="email" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-[#FBAB3F]" />
+                  <input name="email" type="email" required className="w-full border border-black/15 rounded px-3 py-2 focus:ring-2 focus:ring-black" />
                 </div>
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Nom de la société</label>
-                  <input name="societe" type="text" required className="w-full border border-yellow-200 rounded px-3 py-2 focus:ring-2 focus:ring-[#FBAB3F]" />
+                  <input name="societe" type="text" required className="w-full border border-black/15 rounded px-3 py-2 focus:ring-2 focus:ring-black" />
                 </div>
                 <div>
                   <label className="block mb-1 font-medium text-gray-700">Décris ton besoin</label>
-                  <textarea name="besoin" required className="w-full border border-yellow-200 rounded px-3 py-2 min-h-[100px] focus:ring-2 focus:ring-[#FBAB3F]" />
+                  <textarea name="besoin" required className="w-full border border-black/15 rounded px-3 py-2 min-h-[100px] focus:ring-2 focus:ring-black" />
                 </div>
-                <button type="submit" disabled={loading} className="w-full bg-[#FBAB3F] hover:bg-yellow-500 text-black font-bold py-3 rounded-xl shadow text-lg">
+                <button type="submit" disabled={loading} className="w-full bg-black hover:bg-neutral-800 text-white font-bold py-3 rounded-xl shadow text-lg">
                   {loading ? "Envoi en cours..." : "Envoyer la demande"}
                 </button>
               </form>

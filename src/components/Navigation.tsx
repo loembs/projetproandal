@@ -1,146 +1,131 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
+const navItems = [
+  { label: "Services", href: "#services" },
+  { label: "Réalisations", href: "#realisations" },
+  { label: "Partenaires", href: "#partenaires" },
+  { label: "Contact", href: "#contact" },
+];
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleSmoothScroll = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const goTo = (href: string) => {
+    setIsOpen(false);
+    const target = document.querySelector(href);
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const navItems = [
-    { label: "Accueil", href: "#hero" },
-    { label: "Services", href: "#services" },
-    { label: "À propos", href: "#about" },
-    { label: "Contacts", href: "#footer" },
-   
-  ];
+  const light = !isScrolled && !isOpen;
 
   return (
-    <nav className={`fixed top-0 w-full z-50 ${
-      isScrolled 
-        ? "bg-white/95 backdrop-blur-md shadow-lg" 
-        : "bg-transparent"
-    }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className={`text-2xl font-bold ${
-            isScrolled ? "text-black" : "text-white"
-          }`}>
-            <img src="/images/ANDALreativenoir.png" alt="Logo ANDAL" className="h-20 w-auto" />
-          </div>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        light ? "bg-transparent" : "bg-white/95 shadow-sm backdrop-blur-md"
+      }`}
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-2 md:px-8">
+        <a
+          href="#hero"
+          onClick={(event) => {
+            event.preventDefault();
+            goTo("#hero");
+          }}
+          className="relative block h-[4.5rem] w-56 shrink-0 overflow-hidden md:h-24 md:w-80"
+        >
+          <img
+            src={light ? "/images/andalblanc.png" : "/images/ANDALreativenoir.png"}
+            alt="Andal Creative"
+            className="absolute left-1/2 top-1/2 h-36 w-36 max-w-none -translate-x-1/2 -translate-y-1/2 md:h-44 md:w-44"
+          />
+        </a>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSmoothScroll(item.href);
-                }}
-                className={`font-medium tracking-wide hover:text-[#FBAB3F] ${
-                  isScrolled ? "text-gray-800" : "text-white"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+          {navItems.map((item) => (
             <a
-              href="/devis"
-              className={`px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#FBAB3F] focus:ring-offset-2 focus:ring-offset-white
-                ${isScrolled 
-                  ? "bg-[#1B03AD] hover:bg-[#150299] text-white" 
-                  : "bg-[#FBAB3F] hover:bg-[#e69a2e] text-black"}
-              `}
-            >
-              Prendre rendez-vous 
-            </a>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className={`md:hidden ${
-              isScrolled ? "text-black hover:bg-gray-100" : "text-white hover:bg-white/20"
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-xl border border-gray-100">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSmoothScroll(item.href);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
-              >
-                {item.label}
-              </a>
-            ))}
-            
-            {/* Séparateur */}
-            <div className="border-t border-gray-200 my-2"></div>
-            
-            {/* Options du Hero */}
-            <a
-              href="#services"
-              onClick={(e) => {
-                e.preventDefault();
-                handleSmoothScroll("#services");
-                setIsMobileMenuOpen(false);
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                goTo(item.href);
               }}
-              className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
+              className={`text-sm font-medium tracking-wide transition-colors hover:opacity-60 ${
+                light ? "text-white" : "text-black"
+              }`}
             >
-              Découvrir nos services
+              {item.label}
             </a>
-            <a
-              href="/studio"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-4 py-3 text-gray-800 hover:text-[#FBAB3F] hover:bg-gray-50"
-            >
-              Découvrir notre studio
-            </a>
-            
-            {/* Séparateur */}
-            <div className="border-t border-gray-200 my-2"></div>
-            
-            <a
-              href="/devis"
-              className={`w-full bg-[#1B03AD] hover:bg-[#150299] text-white px-6 py-2 font-medium tracking-wide rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-[#FBAB3F] focus:ring-offset-2 focus:ring-offset-white`}
-            >
-              Prendre rendez-vous
-            </a>
-          </div>
-        )}
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="relative flex h-11 w-11 items-center justify-center md:hidden"
+          aria-expanded={isOpen}
+          aria-controls="menu-mobile"
+          aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          onClick={() => setIsOpen((open) => !open)}
+        >
+          <span className="sr-only">{isOpen ? "Fermer" : "Menu"}</span>
+          <span className="relative block h-3.5 w-6">
+            <span
+              className={`absolute left-0 h-0.5 w-6 transition-transform duration-300 ${
+                light ? "bg-white" : "bg-black"
+              } ${isOpen ? "top-1.5 rotate-45" : "top-0"}`}
+            />
+            <span
+              className={`absolute left-0 top-1.5 h-0.5 w-6 transition-opacity duration-300 ${
+                light ? "bg-white" : "bg-black"
+              } ${isOpen ? "opacity-0" : "opacity-100"}`}
+            />
+            <span
+              className={`absolute left-0 h-0.5 w-6 transition-transform duration-300 ${
+                light ? "bg-white" : "bg-black"
+              } ${isOpen ? "top-1.5 -rotate-45" : "top-3"}`}
+            />
+          </span>
+        </button>
       </div>
-    </nav>
+
+      <div
+        id="menu-mobile"
+        {...(!isOpen ? { inert: "" } : {})}
+        aria-hidden={!isOpen}
+        className={`overflow-hidden bg-white transition-[max-height] duration-300 ease-out md:hidden ${
+          isOpen ? "max-h-80 border-t border-black/5" : "max-h-0"
+        }`}
+      >
+        <nav className="flex flex-col px-5 py-3" aria-label="Navigation mobile">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(event) => {
+                event.preventDefault();
+                goTo(item.href);
+              }}
+              className="border-b border-black/5 py-4 text-lg font-medium text-black"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
 };

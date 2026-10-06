@@ -1,8 +1,8 @@
-# Andal Creative Studio
+# Andal Creative
 
 ## À propos du projet
 
-**Andal Creative Studio** est un site web moderne développé avec les technologies les plus récentes pour présenter nos services créatifs et notre portefolio.
+**Andal Creative** est un site web moderne développé avec les technologies les plus récentes pour présenter nos services créatifs et notre portefolio.
 
 ## Technologies utilisées
 
@@ -84,4 +84,4 @@ andal-creative/
 
 ## Support
 
-Pour toute question ou support, contactez l'équipe Andal Creative Studio.
+Pour toute question ou support, contactez l'équipe Andal Creative.

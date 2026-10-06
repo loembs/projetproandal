@@ -10,7 +10,7 @@ export const Stats = () => {
   const stats = [
     {
       icon: BarChart3,
-      number: 12,
+      number: 40,
       suffix: "+",
       label: "Projets Réalisés",
       description: "Des campagnes créatives à fort impact"
@@ -50,7 +50,7 @@ export const Stats = () => {
     <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBAB3F] rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-black rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-600 rounded-full blur-3xl"></div>
       </div>
 
@@ -74,12 +74,12 @@ export const Stats = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
-              <div className="w-16 h-16 bg-[#FBAB3F] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
+              <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110">
                 <stat.icon className="w-8 h-8 text-white icon-animate" />
               </div>
 
                              {/* Number */}
-               <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:text-yellow-600">
+               <div className="text-4xl md:text-5xl font-bold text-black mb-2 group-hover:opacity-70">
                  {counts[index]}{stat.suffix}
                </div>
 
@@ -98,7 +98,7 @@ export const Stats = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          <div className="inline-block bg-[#FBAB3F] rounded-2xl p-1">
+          <div className="inline-block bg-black rounded-2xl p-1">
             <div className="bg-white rounded-xl px-8 py-4">
               <p className="text-lg font-semibold text-gray-800">
                 Prêt à rejoindre nos clients satisfaits ?

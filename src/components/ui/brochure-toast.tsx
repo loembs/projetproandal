@@ -45,7 +45,7 @@ export const BrochureToast = ({
       <div className="bg-white border border-gray-200 rounded-xl shadow-2xl p-5 max-w-sm transform hover:scale-105 transition-transform duration-300">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FBAB3F] to-[#e69a2e] rounded-full flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-black to-neutral-700 rounded-full flex items-center justify-center shadow-lg">
               <Download className="w-5 h-5 text-white" />
             </div>
           </div>
@@ -56,7 +56,7 @@ export const BrochureToast = ({
             <div className="flex items-center gap-3">
               <Button
                 size="sm"
-                className="bg-[#FBAB3F] hover:bg-[#e69a2e] text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                className="bg-black hover:bg-neutral-800 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
                 onClick={handleDownload}
               >
                 <Download className="w-4 h-4 mr-2" />

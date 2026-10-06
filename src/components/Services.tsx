@@ -1,300 +1,221 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { 
-  Smartphone, 
-  Camera, 
-  Calendar, 
-  ArrowRight,
-  Code,
-  Target,
-  Palette,
-  Users,
+import { useEffect, useRef, useState } from "react";
+import {
   Building,
-  Video,
-  Mail,
-  BarChart3,
-  PenTool,
+  Calendar,
+  Code,
   Globe,
-  Zap,
-  Mic,
-  Lightbulb
+  Megaphone,
+  Palette,
+  Smartphone,
+  Target,
+  Video,
+  type LucideIcon,
 } from "lucide-react";
+import { Reveal, RevealLines } from "@/components/Reveal";
+
+type Service = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  image: string;
+};
+
+type Pole = {
+  title: string;
+  services: Service[];
+};
+
+const poles: Pole[] = [
+  {
+    title: "Pôle Créatif / Design",
+    services: [
+      {
+        title: "Stratégie & conseil",
+        description:
+          "Audit et plan de communication, identité de marque, stratégie de contenu et activation de campagnes 360°.",
+        icon: Target,
+        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png",
+      },
+      {
+        title: "Production de contenus",
+        description:
+          "Visuels et shootings, vidéo et motion design, capsules, interviews, publicités et contenus pour les réseaux.",
+        icon: Video,
+        image:
+          "https://res.cloudinary.com/dlna2kuo1/video/upload/so_1,f_jpg,q_auto,w_1400/v1754577767/crea_contenu_jpdaqj.jpg",
+      },
+      {
+        title: "Branding & design",
+        description:
+          "Naming et logo, chartes graphiques, outils print et digitaux, design d'expérience utilisateur.",
+        icon: Palette,
+        image:
+          "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+      },
+      {
+        title: "Événementiel & expérience de marque",
+        description:
+          "Événements corporate et culturels, dispositifs expérientiels, activations terrain et stands.",
+        icon: Calendar,
+        image:
+          "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+      },
+      {
+        title: "Studio créatif intégré",
+        description:
+          "À Dakar : location photo et vidéo, espace maquillage et audio, tournages, interviews, podcasts et branding.",
+        icon: Building,
+        image:
+          "https://res.cloudinary.com/dlna2kuo1/video/upload/so_1,f_jpg,q_auto,w_1400/v1754577804/studio_unspjq.jpg",
+      },
+    ],
+  },
+  {
+    title: "Pôle Développement",
+    services: [
+      {
+        title: "Développement web & digital",
+        description:
+          "Sites vitrine, e-commerce et institutionnels, paiement, maintenance, hébergement, SEO et responsive.",
+        icon: Globe,
+        image:
+          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+      },
+      {
+        title: "Développement d'applications web",
+        description: "Applications web sur mesure, rapides et évolutives, alignées sur vos usages métier.",
+        icon: Code,
+        image:
+          "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755401943/Capture_d_%C3%A9cran_2025-08-17_033840_yrb6d6.png",
+      },
+      {
+        title: "Développement d'applications mobiles",
+        description: "Applications iOS et Android fluides, de l'idée à la mise en ligne.",
+        icon: Smartphone,
+        image:
+          "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755401872/Capture_d_%C3%A9cran_2025-08-17_031750_h6q1xf.png",
+      },
+    ],
+  },
+  {
+    title: "Pôle Réseaux sociaux",
+    services: [
+      {
+        title: "Marketing digital",
+        description:
+          "Community management, campagnes Meta et Google Ads, e-mailing, reporting et marketing d'influence.",
+        icon: Megaphone,
+        image:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+      },
+    ],
+  },
+];
+
+const numbered = poles.flatMap((pole) =>
+  pole.services.map((service, index) => ({
+    ...service,
+    pole: pole.title,
+    poleStart: index === 0,
+    number: "",
+  })),
+);
+
+numbered.forEach((service, index) => {
+  service.number = String(index + 1).padStart(2, "0");
+});
 
 export const Services = () => {
-  const services = [
-    {
-      title: "Stratégie & conseil",
-      icon: Target,
-      description: "Audit complet et élaboration de stratégies de communication sur mesure pour votre entreprise",
-      features: [
-        "Audit & plan de communication",
-        "Définition d'identité de marque", 
-        "Élaboration de stratégie de contenu",
-        "Activation de campagnes 360°"
-      ]
-    },
-    {
-      title: "Production de contenus",
-      icon: Camera,
-      description: "Création de contenus visuels et audiovisuels professionnels pour tous vos supports",
-      features: [
-        "Création de visuels & shootings photo",
-        "Réalisation vidéo & motion design",
-        "Capsules digitales, interviews, publicités",
-        "Création de contenus pour réseaux sociaux"
-      ]
-    },
-    {
-      title: "Marketing digital",
-      icon: Smartphone,
-      description: "Stratégies digitales complètes pour maximiser votre présence en ligne et vos performances",
-      features: [
-        "Community management",
-        "Création et gestion de campagnes sponsorisées (Meta, Google Ads, etc.)",
-        "E-mailing & automation marketing",
-        "Reporting & analyse des performances",
-        "Marketing d'influence "
-      ]
-    },
-    {
-      title: "Branding & design",
-      icon: Palette,
-      description: "Création d'identités visuelles fortes et conception d'expériences utilisateur exceptionnelles",
-      features: [
-        "Naming & création de logo",
-        "Identité visuelle & chartes graphiques",
-        "Conception d'outils print et digitaux",
-        "Design d'expérience utilisateur (UX/UI)"
-      ]
-    },
-    {
-      title: "Développement web & digital",
-      icon: Code,
-      description: "Solutions web complètes et sur mesure pour tous vos projets digitaux",
-      features: [
-        "Création de sites vitrine, e-commerce & institutionnels",
-        "Développement sur mesure (WordPress, Shopify, Webflow, etc.)",
-        "Intégration de solutions de paiement",
-        "Maintenance, hébergement & mise à jour",
-        "Optimisation SEO & responsive design"
-      ]
-    },
-    {
-      title: "Événementiel & expérience de marque",
-      icon: Users,
-      description: "Organisation d'événements mémorables et création d'expériences de marque uniques",
-      features: [
-        "Organisation d'événements corporate et culturels",
-        "Conception de dispositifs expérientiels",
-        "Activation de marque terrain & stands événementiels"
-      ]
-    },
-    {
-      title: "Studio créatif intégré",
-      subtitle: "(Dakar)",
-      icon: Building,
-      description: "Espace de création professionnel avec équipements de pointe pour tous vos projets",
-      features: [
-        "Location de studio photo/vidéo",
-        "Espace de maquillage & enregistrement audio",
-        "Tournages, interviews, podcasts, branding studio"
-      ]
-    }
-  ];
+  const rows = useRef<(HTMLDivElement | null)[]>([]);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const mid = window.innerHeight * 0.42;
+      let best = -1;
+      let bestDist = Infinity;
+      rows.current.forEach((el, index) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < 80 || rect.top > window.innerHeight - 40) return;
+        const dist = Math.abs(rect.top + rect.height / 2 - mid);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = index;
+        }
+      });
+      if (best < 0) return;
+      setActive((current) => (current === best ? current : best));
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   return (
-    <section id="services" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
-            Nos Services
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Découvrez notre gamme complète de services de communication 360° 
-            pour faire rayonner votre marque et stimuler votre performance.
+    <section id="services" className="bg-white py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black">02 — Services</p>
+        </Reveal>
+        <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-tight text-black md:text-6xl">
+          <RevealLines lines={["Ce que nous", "construisons."]} />
+        </h2>
+        <Reveal delay={80}>
+          <p className="mt-6 max-w-2xl text-base font-light leading-relaxed text-neutral-600 md:text-lg">
+            Trois pôles, une même exigence : faire voir, comprendre et performer votre marque.
           </p>
-        </div>
+        </Reveal>
 
-        {/* Services Grid - Mobile-First Design */}
-        <div className="space-y-8 md:space-y-12 mb-20 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className={`service-card group flex flex-col lg:flex-row items-stretch gap-0 lg:gap-8 p-0 rounded-2xl modern-card shadow-xl hover:shadow-2xl overflow-hidden card-animate ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              
-              {/* Background Media Section - Full width on mobile */}
-              <div className="flex-shrink-0 w-full lg:w-2/5 h-48 md:h-64 relative overflow-hidden">
-                {/* Background Image/Video */}
-                {service.title === "Stratégie & conseil" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <img 
-                      src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png" 
-                      alt="Stratégie et conseil"
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                  </div>
-                )}
-                
-                {service.title === "Production de contenus" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <video
-                      src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1754577767/crea_contenu_jpdaqj.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                  </div>
-                )}
-                
-                {service.title === "Marketing digital" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <img 
-                      src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                      alt="Marketing digital"
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                  </div>
-                )}
-                
-                {service.title === "Branding & design" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <img 
-                      src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                      alt="Branding et design"
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                    </div>
-                )}
-                
-                {service.title === "Développement web & digital" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <img 
-                      src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                      alt="Développement web"
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                        </div>
-                )}
-                
-                {service.title === "Événementiel & expérience de marque" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <img 
-                      src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                      alt="Événementiel"
-                      className="w-full h-full object-cover opacity-60"
-                    />
-                    </div>
-                )}
-                
-                {service.title === "Studio créatif intégré" && (
-                  <div className="absolute inset-0 bg-[#FBAB3F]/20">
-                    <video
-                      src="https://res.cloudinary.com/dlna2kuo1/video/upload/v1754577804/studio_unspjq.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover opacity-60"
-                    />
-              </div>
-                )}
-                
-                {/* Overlay for better text readability */}
-                <div className="absolute inset-0 bg-black/20"></div>
-                
-                {/* Service Icon Overlay - Mobile Optimized */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-xl group-hover:scale-110">
-                  <service.icon className="w-8 h-8 md:w-10 md:h-10 text-black icon-animate" />
-                </div>
-                </div>
-                
-                {/* Service Number - Mobile Optimized */}
-                <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 bg-black/80 backdrop-blur-sm rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">{index + 1}</span>
-                </div>
-              </div>
-
-              {/* Content Section - Mobile Optimized */}
-              <div className="flex-1 p-4 md:p-6">
-                <div className="mb-3 md:mb-4">
-                  <h3 className="text-xl md:text-2xl font-bold text-black mb-2 group-hover:text-yellow-600">
-                    {service.title}
+        <div className="mt-14">
+          {numbered.map((service, index) => {
+            const Icon = service.icon;
+            const current = active === index;
+            return (
+              <article key={service.title}>
+                {service.poleStart && (
+                  <h3 className={`mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-black ${service.number === "01" ? "mt-0" : "mt-12"}`}>
+                    <span className="h-2 w-2 bg-black" aria-hidden="true" />
+                    {service.pole}
                   </h3>
-                  {service.subtitle && (
-                    <p className="text-sm md:text-base text-yellow-600 font-medium mb-2 md:mb-3">
-                      {service.subtitle}
-                    </p>
-                  )}
-                </div>
-                
-                <p className="text-gray-700 leading-relaxed mb-3 md:mb-4 text-sm md:text-base">
-                    {service.description}
-                  </p>
-
-                {/* Features List - Mobile Optimized with Stagger */}
-                <div className="space-y-1 md:space-y-2 mb-3 md:mb-4">
-                    {service.features.map((feature, idx) => (
-                    <div 
-                      key={idx} 
-                      className="stagger-item flex items-center space-x-2 md:space-x-3 p-2 rounded-lg bg-gray-50 hover:bg-yellow-50 group/feature"
-                    >
-                                              <div className="w-1.5 md:w-2 h-1.5 md:h-2 bg-[#FBAB3F] rounded-full flex-shrink-0 group-hover/feature:scale-150"></div>
-                      <span className="text-xs md:text-sm text-gray-700 group-hover/feature:text-black font-medium">
-                        {feature}
+                )}
+                <div
+                  ref={(node) => {
+                    rows.current[index] = node;
+                  }}
+                  tabIndex={0}
+                  className="group relative overflow-hidden border-b border-black/10 py-6 outline-none md:px-5 md:py-7"
+                >
+                  <img
+                    src={service.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-[0.16] group-focus-visible:opacity-[0.16]"
+                  />
+                  <div className="relative z-10">
+                    <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 md:grid-cols-12">
+                      <span className={`font-semibold tabular-nums text-black transition-all duration-500 md:col-span-1 ${current ? "text-base" : "text-sm text-black/40"}`}>
+                        {service.number}
                       </span>
-                      </div>
-                    ))}
+                      <h4 className={`font-semibold tracking-tight text-black transition-all duration-500 ease-out md:col-span-6 ${current ? "text-3xl md:text-5xl" : "text-xl text-black/45 md:text-2xl"}`}>
+                        {service.title}
+                      </h4>
+                      <Icon className="h-5 w-5 justify-self-end text-black transition-transform duration-300 group-hover:scale-110 md:col-span-5" aria-hidden="true" />
+                    </div>
+                    <p className="mt-3 max-w-2xl text-sm font-light leading-relaxed text-black/75 md:ml-10">
+                      {service.description}
+                    </p>
                   </div>
-
-                {/* Action Button - Mobile Optimized */}
-                  <Button 
-                    asChild
-                    className="w-full md:w-auto bg-[#FBAB3F] hover:from-yellow-500 hover:to-blue-700 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-semibold rounded-lg group-hover:shadow-lg"
-                  >
-                    <a 
-                      href="https://www.instagram.com/andal.creative/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      Découvrir ce service
-                      <ArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1" />
-                    </a>
-                  </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-[#FBAB3F] rounded-3xl p-12 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="relative z-10">
-            <h3 className="text-4xl font-bold mb-4">
-              Prêt à transformer votre entreprise ?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Découvrez comment nos services peuvent propulser votre succès
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/devis"
-                className="inline-block bg-white text-black px-8 py-4 text-lg font-semibold rounded-xl hover:bg-gray-100"
-          >
-            Demander un devis personnalisé
-          </a>
-              <a
-                href="#footer"
-                className="inline-block border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-xl hover:bg-white hover:text-black"
-              >
-                Nous contacter
-              </a>
-            </div>
-          </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

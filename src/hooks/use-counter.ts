@@ -7,6 +7,14 @@ export const useCounter = (end: number, duration: number = 2000, start: number =
     let startTime: number;
     let animationFrame: number;
 
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setCount(end);
+      return;
+    }
+
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);

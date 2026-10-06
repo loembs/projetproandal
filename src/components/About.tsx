@@ -1,91 +1,76 @@
-import { Button } from "@/components/ui/button";
-import { Users, Download } from "lucide-react";
-import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
+import { useInView } from "react-intersection-observer";
+import { Reveal, RevealLines } from "@/components/Reveal";
+import { useCounter } from "@/hooks/use-counter";
+
+const stats = [
+  { value: 40, suffix: "+", label: "Projets réalisés" },
+  { value: 10, suffix: "+", label: "Clients accompagnés" },
+  { value: 4, suffix: "", label: "Pays de présence" },
+  { value: 98, suffix: "%", label: "Satisfaction" },
+];
 
 export const About = () => {
+  const { ref, inView } = useInView({ threshold: 0.35, triggerOnce: true });
+  const counts = [
+    useCounter(inView ? stats[0].value : 0, 1600),
+    useCounter(inView ? stats[1].value : 0, 1600),
+    useCounter(inView ? stats[2].value : 0, 1600),
+    useCounter(inView ? stats[3].value : 0, 1600),
+  ];
+
   return (
-    <section id="about" className="py-12 bg-white h-full">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Content Side */}
-          <div className="space-y-8 h-full animate-slide-in-left pl-8">
-            <div>
-              <h2 className="text-5xl md:text-6xl font-light text-black mb-8 leading-tight">
-                Qui sommes-nous ?
-              </h2>
-              <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                <strong className="text-[#1B03AD]">Agence de communication 360°</strong><br />
-               Andal Creative est une agence de communication 360° qui accompagne les marques, institutions et porteurs de projets dans la conception, la stratégie et la réalisation de campagnes créatives à fort impact.
-              </p>
-              <p className="text-xl text-gray-700 leading-relaxed">
-                Fidèle à son nom <strong className="text-[#FBAB3F]">Andal</strong> signifiant "le savoir" en pulaar l'agence s'appuie sur une <strong className="text-black">maîtrise des codes culturels africains</strong>, une forte expertise terrain et une <strong className="text-black">approche résolument créative</strong> pour valoriser les identités, faire rayonner les marques et stimuler la performance.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button 
-                    size="lg"
-                    className="bg-[#1B03AD] hover:bg-[#150299] text-white px-8 py-4 text-lg font-semibold btn-animate"
-                  >
-                    En savoir plus
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="max-w-3xl p-0 bg-transparent border-0 shadow-none flex items-center justify-center min-h-[70vh]">
-                  <iframe
-                    src="/images/ANDAL CREATIVE PRESENTATION.pdf"
-                    title="Présentation Andal Creative"
-                    className="w-full h-[70vh] rounded-xl shadow-2xl bg-white"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                  />
-                </DialogContent>
-              </Dialog>
-
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-[#FBAB3F] text-[#FBAB3F] hover:bg-[#FBAB3F] hover:text-white px-8 py-4 text-lg font-semibold btn-animate"
-                asChild
-              >
-                <a href="/ANDAL CREATIVE _ Agence 360.pdf" download="ANDAL CREATIVE - Agence 360.pdf">
-                  <Download className="mr-2 w-5 h-5" />
-                  Brochure
-                </a>
-              </Button>
-            </div>
+    <section id="apropos" className="overflow-x-clip bg-white py-20 md:py-28">
+      <div className="mx-auto grid max-w-6xl gap-14 px-5 md:px-8 lg:grid-cols-12 lg:gap-16">
+        <div className="relative self-start overflow-hidden lg:col-span-5">
+          <img
+            src="/images/ANDALreativenoir.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-[62%] z-0 w-[32rem] max-w-none -translate-x-1/2 -translate-y-1/2 select-none opacity-[0.09] md:w-[40rem]"
+          />
+          <div className="relative z-10">
+            <Reveal>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black">01 — À propos</p>
+            </Reveal>
+            <h2 className="mt-4 text-4xl font-semibold leading-[0.95] tracking-tight text-black md:text-6xl">
+              <RevealLines lines={["Le savoir", "au service", "des marques."]} />
+            </h2>
           </div>
+        </div>
+        <div className="lg:col-span-7 lg:pt-10">
+          <Reveal delay={80}>
+            <p className="text-lg font-light leading-relaxed text-neutral-700 md:text-xl">
+              Andal Creative est une agence de communication 360°. Nous accompagnons marques, institutions et porteurs de projets, de la stratégie à la réalisation.
+            </p>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-5 text-base font-light leading-relaxed text-neutral-600 md:text-lg">
+              Andal signifie « le savoir » en pulaar. Depuis Dakar, Abidjan, Douala et Paris, cette exigence guide notre lecture des codes culturels et une création pensée pour la performance.
+            </p>
+          </Reveal>
+          <Reveal delay={220}>
+            <a
+              href="/ANDAL CREATIVE _ Agence 360.pdf"
+              download="ANDAL CREATIVE - Agence 360.pdf"
+              className="mt-8 inline-flex text-sm font-semibold uppercase tracking-[0.18em] text-black underline-offset-4 hover:underline"
+            >
+              Télécharger la brochure
+            </a>
+          </Reveal>
+        </div>
+      </div>
 
-          {/* Team Image Side */}
-          <div className="relative flex flex-col items-center justify-center h-full animate-slide-in-right">
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center h-full shadow-xl relative overflow-hidden card-animate">
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755394548/photo_d_%C3%A9quipe_zs7imc.jpg" 
-                  alt="photo d'équipe en arrière-plan"
-                  className="w-full h-full object-cover opacity-20"
-                />
-              </div>
-              
-              {/* Team Image Container */}
-              <div className="relative w-full h-96 flex items-center justify-center z-10">
-                {/* Team Image */}
-                <div className="relative z-10 text-center">
-                  <div className="w-80 h-80 bg-gradient-to-br from-[#FBAB3F]/20 to-blue-600/20 rounded-2xl p-8 flex items-center justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
-                    <div className="absolute inset-0 z-0">
-                      <img 
-                        src="https://res.cloudinary.com/dlna2kuo1/image/upload/v1755394548/photo_d_%C3%A9quipe_zs7imc.jpg" 
-                        alt="photo d'équipe"
-                        className="w-full h-full object-cover rounded-2xl"
-                      />
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
+      <div ref={ref} className="mx-auto mt-20 max-w-6xl px-5 md:mt-24 md:px-8">
+        <div className="grid grid-cols-2 border-t-2 border-black md:grid-cols-4">
+          {stats.map((stat, index) => (
+            <div key={stat.label} className="border-black/10 py-8 md:border-l md:px-6 md:py-10 md:first:border-l-0 md:first:pl-0">
+              <p className="text-5xl font-semibold tracking-tight text-black md:text-6xl">
+                {counts[index]}
+                {stat.suffix}
+              </p>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-black">{stat.label}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

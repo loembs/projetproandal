@@ -1,152 +1,38 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useEffect } from "react";
-
-// Styles CSS personnalisés pour supprimer le blanc
-const removeWhiteStyles = `
-  .remove-white-bg {
-    filter: brightness(1.8) contrast(3) saturate(2) hue-rotate(0deg) !important;
-    mix-blend-mode: multiply !important;
-    background: transparent !important;
-  }
-  
-  .remove-white-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(0,0,0,0.1) 50%, transparent 70%);
-    pointer-events: none;
-  }
-`;
+import { partners } from "@/data/content";
+import { Reveal, RevealLines } from "@/components/Reveal";
 
 export const Partenaires = () => {
-  // Injection des styles CSS personnalisés
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.textContent = removeWhiteStyles;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
-  const logos = [
-    { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461621/t%C3%A9l%C3%A9chargement_onismw.png", name: "Betclic" },
-    { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461608/t%C3%A9l%C3%A9chargement_ycv3el.jpg", name: "Kapreece" },
-    { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461591/t%C3%A9l%C3%A9chargement_1_kgwxjf.png", name: "Africa Global Study" },
-    { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461560/t%C3%A9l%C3%A9chargement_1_xiveff.jpg", name: "Kolo" },
-    { src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751464478/t%C3%A9l%C3%A9chargement_2_grbxe7.png", name: "F&W PARIS" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_3_ywe2g7.png", name: "Cerave" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_4_a2iyec.png", name: "Adidiar" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395876/logo_2_2_tq4o1g.png", name: "Ciane" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_2_ljgyer.png", name: "HA" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_1_qduvev.png", name: "Laundry Boy" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_3_i4uarn.png", name: "Brutlin" },
-    { src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_4_m89dfm.png", name: "Luxury Virgin hair" },
-  ];
-
-  // Regroupe les logos par 4 pour un affichage en grille 2x2
-  const groupedLogos = [];
-  for (let i = 0; i < logos.length; i += 4) {
-    groupedLogos.push(logos.slice(i, i + 4));
-  }
+  const loop = [...partners, ...partners];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-blue-900 relative overflow-hidden">
-      {/* Effet subtil en arrière-plan */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FBAB3F]/10 to-blue-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-r from-blue-500/10 to-[#FBAB3F]/10 rounded-full blur-3xl"></div>
+    <section id="partenaires" className="overflow-hidden bg-[#f6f4f1] py-20 md:py-28">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-black">04 — Partenaires</p>
+        </Reveal>
+        <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-tight text-black md:text-6xl">
+          <RevealLines lines={["Ils nous font", "confiance."]} />
+        </h2>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section titre avec poignée de main */}
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold mb-12 tracking-tight">
-            <span className="text-white">Ils nous ont fait</span>
-            <br />
-            <span className="gradient-text px-6 py-3 rounded-xl shadow-lg inline-block mt-4">
-              confiance
-            </span>
-          </h2>
-          
-          <div className="w-full mb-12 relative overflow-hidden">
-            <div className="relative group">
-              <div className="relative w-screen h-auto overflow-hidden">
-                {/* <img 
-                  src="/images/main.jpg" 
-                  alt="Poignée de main élégante" 
-                  className="w-screen h-auto object-cover drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
-                  style={{ 
-                    objectPosition: 'center',
-                    position: 'relative',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '130vw',
-                    zIndex: '1',
-                    filter: 'brightness(1.2) contrast(1.3) saturate(1.1)',
-                    mixBlendMode: 'darken'
-                  }}
-                /> */}
-                {/* Overlay pour masquer le blanc */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"
-                  style={{
-                    background: 'linear-gradient(45deg, transparent 0%, rgba(0,0,0,0.3) 50%, transparent 100%)'
-                  }}
+      <div className="relative mt-12">
+        <ul className="partner-track gap-4 px-4 md:gap-5">
+          {loop.map((partner, index) => (
+            <li key={`${partner.name}-${index}`} className="w-52 shrink-0 md:w-60">
+              <div className="flex h-40 flex-col items-center justify-center rounded-[1.75rem] bg-white px-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
+                <img
+                  src={partner.src}
+                  alt={partner.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="max-h-16 w-full object-contain"
                 />
+                <p className="mt-3 text-center text-xs font-medium text-neutral-600">{partner.name}</p>
               </div>
-              {/* Effet de bras qui sortent de l'écran */}
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/30 pointer-events-none"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Carrousel des logos */}
-        <div className="relative">
-          <Carousel opts={{ loop: true }} plugins={[Autoplay({ delay: 3000 })]}>
-          <CarouselContent>
-            {groupedLogos.map((group, idx) => (
-                <CarouselItem key={idx}>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {group.map((logo, j) => (
-                                             <div 
-                         key={j} 
-                         className="group flex flex-col items-center justify-center bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/10 shadow-lg hover:scale-105 hover:bg-white/10 hover:border-[#FBAB3F]/30 h-[250px]"
-                       >
-                                                 <div className="relative w-full h-full">
-                           {/* Logo positionné absolument au centre */}
-                           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 flex items-center justify-center">
-                             <img 
-                               src={logo.src} 
-                               alt={logo.name} 
-                               className={`max-w-full max-h-full w-auto h-auto object-contain transform group-hover:scale-110 rounded-xl ${
-                                 logo.name === "Laundry Boy" ? "translate-x-[-8px]" : 
-                                 logo.name === "Adidiar" ? "translate-x-[8px]" : ""
-                               }`}
-                             />
-                           </div>
-                           {/* Titre positionné absolument en bas */}
-                           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-full text-center">
-                             <span className={`text-base font-semibold text-white group-hover:text-[#FBAB3F] ${
-                               logo.name === "Laundry Boy" ? "translate-x-[-8px]" : ""
-                             }`}>{logo.name}</span>
-                           </div>
-                         </div>
-                  </div>
-                ))}
-                  </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-            <CarouselPrevious className="left-6 bg-white/10 hover:bg-white/20 border-white/20 text-white backdrop-blur-sm" />
-            <CarouselNext className="right-6 bg-white/10 hover:bg-white/20 border-white/20 text-white backdrop-blur-sm" />
-        </Carousel>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
-}; 
+};

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -157,7 +157,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -288,9 +288,9 @@ body {
 @layer base {
   :root {
     /* Couleurs Andal Creative */
-    --andal-blue: #1B03AD;
+    --andal-blue: #000000;
     --andal-black: #000000;
-    --andal-orange: #FBAB3F;
+    --andal-orange: #000000;
     
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -381,13 +381,98 @@ body {
 @layer base {
   * {
     @apply border-border;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 300;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  section[id] {
+    scroll-margin-top: 7.5rem;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track,
+.partner-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.partner-track {
+  animation-duration: 48s;
+}
+
+.partner-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-line {
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-cue {
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(to bottom, transparent, #fff);
+  animation: scroll-cue 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0% { transform: scaleY(0.4); transform-origin: top; opacity: 0.3; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0.4); transform-origin: bottom; opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .partner-track,
+  .hero-line,
+  .scroll-cue,
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

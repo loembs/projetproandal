@@ -1,122 +1,82 @@
-import { Button } from "@/components/ui/button";
-import { Heart, ArrowUp, Instagram, Linkedin, Facebook } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { socialLinks } from "@/data/content";
+
+const links = [
+  { label: "Services", href: "#services" },
+  { label: "Réalisations", href: "#realisations" },
+  { label: "Partenaires", href: "#partenaires" },
+  { label: "Contact", href: "#contact" },
+  { label: "Prendre rendez-vous", href: "/devis" },
+];
 
 export const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer id="footer" className="bg-black text-white">
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="md:col-span-2 ">
-            <div className="flex items-start space-x-6">
-            <h3 className="text-4xl font-bold mb-6 text-[#FBAB3F] animate-fade-in-up flex-shrink-0">
-              <img src="/images/andalblanc.png" alt="Logo ANDAL" className="h-20 w-auto inline" />
-            </h3>
-            <p className="text-gray-300 leading-relaxed mb-8 max-w-md text-lg animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              Votre partenaire créatif pour transformer votre vision en réalité digitale. 
-              Nous vous accompagnons vers l'excellence.
-            </p>
-            </div>
-            <div className="flex space-x-4">
-              <Button 
-                asChild
-                variant="outline" 
-                size="sm"
-                className="bg-black  text-white btn-animate border-black"
-              >
-                <a href="https://www.instagram.com/andal.creative.cmr/" target="_blank" rel="noopener noreferrer">
-                <img
-                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
-                      alt="Icône"
-                      className="w-6 h-6 inline-block mr-2"
-                    />
-                  Cameroun
-                </a>
-              </Button>
-              <Button 
-                asChild
-                variant="outline" 
-                size="sm"
-                className="bg-black  text-white btn-animate  border-black"
-              >
-                <a href="https://www.instagram.com/andal.creative/" target="_blank" rel="noopener noreferrer">
-                <img
-                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
-                      alt="Icône"
-                      className="w-6 h-6 inline-block mr-2"
-                    /> Sénégal
-                </a>
-              </Button>
-              <Button 
-                asChild
-                variant="outline" 
-                size="sm"
-                className="bg-black  text-white btn-animate border-black"
-              >
-                <a href="https://www.instagram.com/andal.creative_ci/" target="_blank" rel="noopener noreferrer">
-                <img
-                      src="https://img.icons8.com/?size=100&id=Xy10Jcu1L2Su&format=png&color=000000"
-                      alt="Icône"
-                      className="w-6 h-6 inline-block mr-2"
-                    /> Côte d'Ivoire
-                </a>
-              </Button>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-white">Services</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li><a href="#" className="hover:text-[#FBAB3F]">Marketing Digital</a></li>
-              <li><a href="#" className="hover:text-[#FBAB3F]">Production de Contenus</a></li>
-              <li><a href="#" className="hover:text-[#FBAB3F]">Événements</a></li>
-              <li><a href="#" className="hover:text-[#FBAB3F]">Location  studio créatif </a></li>
-              <li><a href="#" className="hover:text-[#FBAB3F]">Création de sites web modernes</a></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-xl font-semibold mb-6 text-white">Contacts</h4>
-            <ul className="space-y-3 text-gray-300">
-              <li>+221 782800808 (Sénégal)</li>
-              <li>+237 682908439 (Cameroun)</li>
-              <li>+33 6 99 06 54 20 (France)</li>
-              <li>contacts@andalcreative.com</li>
-              <li>Dakar - Abidjan - Douala - Paris</li>
-            </ul>
-          </div>
+    <footer className="border-t border-white/10 bg-black text-white">
+      <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8">
+        <div className="md:col-span-5">
+          <a href="#hero" className="relative block h-20 w-64 overflow-hidden md:h-28 md:w-80">
+            <img
+              src="/images/andalblanc.png"
+              alt="Andal Creative"
+              className="absolute left-1/2 top-1/2 h-48 w-48 max-w-none -translate-x-1/2 -translate-y-1/2 md:h-64 md:w-64"
+            />
+          </a>
+          <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/70">
+            Agence de communication 360°. Dakar, Abidjan, Douala, Paris.
+          </p>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-2 text-gray-400 mb-4 md:mb-0">
-            <span>© 2025 Andal Creative .Tous droits réservés </span>
-          </div>
-          
-          <div className="flex justify-center items-center h-16">
-            <button
-              onClick={scrollToTop}
-              className="focus:outline-none hover:scale-110 animate-bounce"
-              aria-label="Retour en haut"
-            >
-              <svg
-                className="w-8 h-8 text-[#FBAB3F] hover:rotate-180 transition-transform duration-500"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-              </svg>
-            </button>
-          </div>
+        <nav className="md:col-span-3" aria-label="Pied de page">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Navigation</p>
+          <ul className="mt-4 space-y-2">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="text-sm text-white/80 transition-colors hover:text-white">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="md:col-span-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Contact</p>
+          <ul className="mt-4 space-y-2 text-sm text-white/80">
+            <li>
+              <a className="hover:text-white" href="mailto:contacts@andalcreative.com">
+                contacts@andalcreative.com
+              </a>
+            </li>
+            <li>+221 782800808 Sénégal</li>
+            <li>+237 682908439 Cameroun</li>
+            <li>+33 6 99 06 54 20 France</li>
+          </ul>
+          <ul className="mt-5 space-y-2">
+            {socialLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="inline-flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-white"
+                >
+                  <Instagram className="h-4 w-4" aria-hidden="true" />
+                  {link.country}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
+
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pb-8 text-xs text-white/50 md:px-8">
+        <p>© {new Date().getFullYear()} Andal Creative. Tous droits réservés.</p>
+        <button type="button" onClick={scrollToTop} className="uppercase tracking-[0.18em] hover:text-white" aria-label="Retour en haut">
+          Haut
+        </button>
       </div>
     </footer>
   );
