@@ -17,6 +17,20 @@ export const Hero = () => {
     return () => media.removeEventListener("change", sync);
   }, []);
 
+  const showVideo = !failed && !reduceMotion;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !showVideo) return;
+    video.muted = true;
+    const start = () => {
+      video.play().catch(() => undefined);
+    };
+    if (video.readyState >= 2) start();
+    else video.addEventListener("canplay", start, { once: true });
+    return () => video.removeEventListener("canplay", start);
+  }, [showVideo]);
+
   const toggleSound = () => {
     const video = videoRef.current;
     if (!video) return;
@@ -28,15 +42,14 @@ export const Hero = () => {
     setMuted(next);
   };
 
-  const showVideo = !failed && !reduceMotion;
-
   return (
     <section id="hero" className="relative flex min-h-[100svh] items-end overflow-x-clip bg-black text-white">
       <div className="absolute inset-0">
-        {showVideo ? (
+        <img src={HERO_POSTER} alt="" className="h-full w-full object-cover" />
+        {showVideo && (
           <video
             ref={videoRef}
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             autoPlay
             muted
             loop
@@ -47,8 +60,6 @@ export const Hero = () => {
           >
             <source src={HERO_VIDEO} type="video/mp4" />
           </video>
-        ) : (
-          <img src={HERO_POSTER} alt="" className="h-full w-full object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/65" />
       </div>
@@ -61,7 +72,7 @@ export const Hero = () => {
           <InstagramHandle />
         </h1>
         <p className="hero-line max-w-xl text-base font-light leading-relaxed text-white/85 md:text-lg" style={{ animationDelay: "0.28s" }}>
-          Agence de communication 360°. Stratégie, création et développement pour des marques qui durent.
+          Agence de marketing digital 360°. Stratégie, création et développement pour des marques qui durent.
         </p>
         <div className="hero-line flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.46s" }}>
           <a
@@ -91,13 +102,6 @@ export const Hero = () => {
         </button>
       )}
 
-      <a
-        href="#apropos"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[0.65rem] uppercase tracking-[0.28em] text-white/80"
-      >
-        <span>Défiler</span>
-        <span className="scroll-cue" aria-hidden="true" />
-      </a>
     </section>
   );
 };

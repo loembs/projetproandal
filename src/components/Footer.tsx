@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { ArrowUp, Instagram } from "lucide-react";
 import { socialLinks } from "@/data/content";
 
 const links = [
@@ -10,7 +10,9 @@ const links = [
 ];
 
 export const Footer = () => {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const goToHero = () => {
+    document.getElementById("hero")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <footer className="border-t border-white/10 bg-black text-white">
@@ -24,7 +26,7 @@ export const Footer = () => {
             />
           </a>
           <p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-white/70">
-            Agence de communication 360°. Dakar, Abidjan, Douala, Paris.
+            Agence de marketing digital 360°. Dakar, Abidjan, Douala.
           </p>
         </div>
 
@@ -51,7 +53,6 @@ export const Footer = () => {
             </li>
             <li>+221 782800808 Sénégal</li>
             <li>+237 682908439 Cameroun</li>
-            <li>+33 6 99 06 54 20 France</li>
           </ul>
           <ul className="mt-5 space-y-2">
             {socialLinks.map((link) => (
@@ -74,8 +75,13 @@ export const Footer = () => {
 
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 pb-8 text-xs text-white/50 md:px-8">
         <p>© {new Date().getFullYear()} Andal Creative. Tous droits réservés.</p>
-        <button type="button" onClick={scrollToTop} className="uppercase tracking-[0.18em] hover:text-white" aria-label="Retour en haut">
-          Haut
+        <button
+          type="button"
+          onClick={goToHero}
+          aria-label="Retour au début"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        >
+          <ArrowUp className="h-5 w-5" aria-hidden="true" />
         </button>
       </div>
     </footer>

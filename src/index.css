@@ -414,7 +414,7 @@ body {
 }
 
 .partner-track {
-  animation-duration: 48s;
+  animation-duration: 80s;
 }
 
 .partner-track:hover {
@@ -447,19 +447,6 @@ body {
   transform: none;
 }
 
-.scroll-cue {
-  width: 1px;
-  height: 42px;
-  background: linear-gradient(to bottom, transparent, #fff);
-  animation: scroll-cue 1.6s ease-in-out infinite;
-}
-
-@keyframes scroll-cue {
-  0% { transform: scaleY(0.4); transform-origin: top; opacity: 0.3; }
-  50% { transform: scaleY(1); opacity: 1; }
-  100% { transform: scaleY(0.4); transform-origin: bottom; opacity: 0.3; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -468,7 +455,6 @@ body {
   .marquee-track,
   .partner-track,
   .hero-line,
-  .scroll-cue,
   .reveal {
     animation: none !important;
     opacity: 1 !important;

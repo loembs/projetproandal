@@ -65,7 +65,6 @@ export const Contact = () => {
             <ul className="mt-3 space-y-1 text-sm text-white/70">
               <li>+221 782800808 Sénégal</li>
               <li>+237 682908439 Cameroun</li>
-              <li>+33 6 99 06 54 20 France</li>
             </ul>
             <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
               {socialLinks.map((link) => (

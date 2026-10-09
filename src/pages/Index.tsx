@@ -8,6 +8,7 @@ import { Navigation } from "@/components/Navigation";
 import { Partenaires } from "@/components/Partenaires";
 import { Presence } from "@/components/Presence";
 import { Portfolio } from "@/components/Portfolio";
+import { ScrollPuces } from "@/components/ScrollPuces";
 import { Services } from "@/components/Services";
 
 const Index = () => {
@@ -15,6 +16,7 @@ const Index = () => {
     <div className="min-h-screen bg-white text-black">
       <Cursor />
       <Navigation />
+      <ScrollPuces />
       <main>
         <Hero />
         <Marquee />

@@ -51,7 +51,7 @@ export const Navigation = () => {
           <img
             src={light ? "/images/andalblanc.png" : "/images/ANDALreativenoir.png"}
             alt="Andal Creative"
-            className="absolute left-1/2 top-1/2 h-36 w-36 max-w-none -translate-x-1/2 -translate-y-1/2 md:h-44 md:w-44"
+            className="absolute left-0 top-1/2 h-36 w-36 max-w-none -translate-y-1/2 md:h-44 md:w-44"
           />
         </a>
 

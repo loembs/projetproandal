@@ -2,7 +2,7 @@ export const HERO_VIDEO =
   "https://res.cloudinary.com/jucpyysy/video/upload/v1791248007/Instant_beauty.mp4";
 
 export const HERO_POSTER =
-  "https://res.cloudinary.com/jucpyysy/video/upload/so_0,f_jpg,q_auto,w_1600/v1791248007/Instant_beauty.jpg";
+  "https://res.cloudinary.com/jucpyysy/video/upload/so_3,f_jpg,q_auto,w_1600/v1791248007/Instant_beauty.jpg";
 
 export const MARQUEE_WORDS = [
   "Motion design",
@@ -50,55 +50,73 @@ export const countries = [
     city: "Douala",
     flag: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg",
   },
-  {
-    name: "France",
-    city: "Paris",
-    flag: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
-  },
 ] as const;
 
-export const partners = [
-  { name: "Betclic", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461621/t%C3%A9l%C3%A9chargement_onismw.png" },
-  { name: "Kapreece", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461608/t%C3%A9l%C3%A9chargement_ycv3el.jpg" },
-  { name: "Africa Global Study", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461591/t%C3%A9l%C3%A9chargement_1_kgwxjf.png" },
+export type Partner = {
+  name: string;
+  src?: string;
+};
+
+export const partners: Partner[] = [
+  {
+    name: "L'Oréal Paris",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791549177/loreal.png",
+  },
+  {
+    name: "Garnier Afrique",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791549177/garnier.jpg",
+  },
+  {
+    name: "Mixa Afrique",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791549348/Mixa.jpg",
+  },
+  {
+    name: "Instant Beauté",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247952/Instant_beauty.jpg",
+  },
+  {
+    name: "Betclic Sénégal",
+    src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461621/t%C3%A9l%C3%A9chargement_onismw.png",
+  },
+  { name: "PAENS", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/paens.jpg" },
+  { name: "Green Mobility", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247952/green_mobility.jpg" },
+  { name: "Structura", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247997/structuralogo.jpg" },
+  { name: "Brutlin", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_3_i4uarn.png" },
+  { name: "Trust Africa", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/trustAfrica.png" },
+  { name: "Apple Store Sea Plaza", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791548323/istar.jpg" },
+  { name: "F&W Paris", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751464478/t%C3%A9l%C3%A9chargement_2_grbxe7.png" },
+  { name: "Kanalar Health Tourism" },
+  {
+    name: "Donatela Créa",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791548929/Capture_d_%C3%A9cran_2026-10-09_122728.png",
+  },
+  {
+    name: "Big Sisters Africa",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791549898/big_sister.jpg",
+  },
+  { name: "Plum Godness Africa" },
+  { name: "Atelier Kër", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791252500/Atelier_ker.jpg" },
+  { name: "Real Estate Africa" },
+  {
+    name: "Sangomar",
+    src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1773743879/sangomar.logo-removebg-preview_zxjsmo.png",
+  },
+  {
+    name: "Memoukke Conseil Afrique",
+    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791552270/memoukke.png",
+  },
+  { name: "MPT Distribution", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/MPT.jpg" },
+  { name: "Pertinence", src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791550160/pertinence.png" },
+  { name: "Kapreece Luxury Home", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461608/t%C3%A9l%C3%A9chargement_ycv3el.jpg" },
+  { name: "Bambi Home" },
   { name: "Kolo", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461560/t%C3%A9l%C3%A9chargement_1_xiveff.jpg" },
-  { name: "F&W PARIS", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751464478/t%C3%A9l%C3%A9chargement_2_grbxe7.png" },
-  { name: "CeraVe", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_3_ywe2g7.png" },
+  { name: "Africa Global Study", src: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1751461591/t%C3%A9l%C3%A9chargement_1_kgwxjf.png" },
   { name: "Adidiar", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_4_a2iyec.png" },
   { name: "Ciane", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395876/logo_2_2_tq4o1g.png" },
   { name: "HA", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755395874/logo_1_2_ljgyer.png" },
   { name: "Laundry Boy", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_1_qduvev.png" },
-  { name: "Brutlin", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_3_i4uarn.png" },
   { name: "Luxury Virgin Hair", src: "https://res.cloudinary.com/dprbhsvxl/image/upload/v1755396702/logo_3_4_m89dfm.png" },
-  {
-    name: "Instant Beauty",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247952/Instant_beauty.jpg",
-  },
-  {
-    name: "Green Mobility",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247952/green_mobility.jpg",
-  },
-  {
-    name: "MPT",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/MPT.jpg",
-  },
-  {
-    name: "Structura",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247997/structuralogo.jpg",
-  },
-  {
-    name: "TrustAfrica",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/trustAfrica.png",
-  },
-  {
-    name: "PAENS",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247998/paens.jpg",
-  },
-  {
-    name: "Atelier Kër",
-    src: "https://res.cloudinary.com/jucpyysy/image/upload/v1791252500/Atelier_ker.jpg",
-  },
-] as const;
+];
 
 export const INSTAGRAM_HANDLE = "https://www.instagram.com/andal.creative/";
 

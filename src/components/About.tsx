@@ -4,8 +4,8 @@ import { useCounter } from "@/hooks/use-counter";
 
 const stats = [
   { value: 40, suffix: "+", label: "Projets réalisés" },
-  { value: 10, suffix: "+", label: "Clients accompagnés" },
-  { value: 4, suffix: "", label: "Pays de présence" },
+  { value: 24, suffix: "+", label: "Clients accompagnés" },
+  { value: 3, suffix: "", label: "Pays de présence" },
   { value: 98, suffix: "%", label: "Satisfaction" },
 ];
 
@@ -40,12 +40,12 @@ export const About = () => {
         <div className="lg:col-span-7 lg:pt-10">
           <Reveal delay={80}>
             <p className="text-lg font-light leading-relaxed text-neutral-700 md:text-xl">
-              Andal Creative est une agence de communication 360°. Nous accompagnons marques, institutions et porteurs de projets, de la stratégie à la réalisation.
+              Andal Creative est une agence de marketing digital 360°. Nous accompagnons marques, institutions et porteurs de projets, de la stratégie à la réalisation.
             </p>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-5 text-base font-light leading-relaxed text-neutral-600 md:text-lg">
-              Andal signifie « le savoir » en pulaar. Depuis Dakar, Abidjan, Douala et Paris, cette exigence guide notre lecture des codes culturels et une création pensée pour la performance.
+              Andal signifie « le savoir » en pulaar. Depuis Dakar, Abidjan et Douala, cette exigence guide notre lecture des codes culturels et une création pensée pour la performance.
             </p>
           </Reveal>
           <Reveal delay={220}>

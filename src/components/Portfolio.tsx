@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Reveal, RevealLines } from "@/components/Reveal";
 import {
@@ -7,6 +7,9 @@ import {
   type PortfolioItem,
 } from "@/data/content";
 
+const videoPoster = (src: string) =>
+  src.replace("/video/upload/", "/video/upload/so_1,f_jpg,q_auto,w_900/").replace(/\.mp4(\?.*)?$/, ".jpg");
+
 const MediaCard = ({
   item,
   onOpen,
@@ -14,62 +17,68 @@ const MediaCard = ({
   item: PortfolioItem;
   onOpen: (item: PortfolioItem) => void;
 }) => {
+  const rootRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [ready, setReady] = useState(false);
+  const poster = item.kind === "video" ? videoPoster(item.src) : "";
 
-  const play = () => {
+  useEffect(() => {
+    if (item.kind !== "video") return;
+    const node = rootRef.current;
     const video = videoRef.current;
-    if (!video) return;
-    video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
-  };
+    if (!node || !video) return;
 
-  const pause = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.pause();
-    video.currentTime = 0;
-    setPlaying(false);
-  };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().then(() => setReady(true)).catch(() => setReady(false));
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [item.kind, item.src]);
 
   const open = () => {
-    pause();
+    videoRef.current?.pause();
     onOpen(item);
   };
 
-  const onActivate = () => {
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
-    if (item.kind === "video" && coarse && !playing) {
-      play();
-      return;
-    }
-    open();
-  };
-
   return (
-    <article className="group relative">
+    <article ref={rootRef} className="group relative">
       <button
         type="button"
-        onClick={onActivate}
-        onMouseEnter={() => {
-          if (item.kind === "video" && window.matchMedia("(pointer: fine)").matches) play();
-        }}
-        onMouseLeave={() => {
-          if (item.kind === "video") pause();
-        }}
+        onClick={open}
         className="relative block w-full overflow-hidden bg-neutral-200 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
-        aria-label={item.kind === "video" ? `Cliquez pour lire la vidéo ${item.title}` : `Ouvrir ${item.title}`}
+        aria-label={`Ouvrir ${item.title}`}
       >
-        <div className="aspect-square">
+        <div className="relative aspect-square">
           {item.kind === "video" ? (
-            <video
-              ref={videoRef}
-              src={item.src}
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <>
+              <img
+                src={poster}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
+              <video
+                ref={videoRef}
+                src={item.src}
+                poster={poster}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                onPlaying={() => setReady(true)}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+                  ready ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </>
           ) : (
             <img
               src={item.src}
@@ -80,26 +89,10 @@ const MediaCard = ({
             />
           )}
         </div>
-        {item.kind === "video" && !playing && (
-          <span className="pointer-events-none absolute inset-x-1 bottom-1 z-10 flex justify-center sm:inset-x-2 sm:bottom-2">
-            <span className="rounded-full bg-white px-2 py-1 text-center text-[0.62rem] font-semibold leading-tight text-black shadow-sm sm:px-3 sm:text-xs">
-              Cliquez pour lire la vidéo
-            </span>
-          </span>
-        )}
         <span className="absolute inset-0 flex items-end bg-black/0 p-3 text-white opacity-0 transition-opacity duration-300 group-hover:bg-black/35 group-hover:opacity-100 group-focus-within:bg-black/35 group-focus-within:opacity-100">
           <span className="block text-sm font-semibold tracking-tight">{item.title}</span>
         </span>
       </button>
-      {item.kind === "video" && playing && (
-        <button
-          type="button"
-          onClick={open}
-          className="absolute bottom-2 left-2 z-10 rounded-full bg-white px-3 py-1 text-xs font-semibold text-black md:hidden"
-        >
-          Voir en grand
-        </button>
-      )}
     </article>
   );
 };

@@ -26,51 +26,20 @@ type Pole = {
 
 const poles: Pole[] = [
   {
-    title: "Pôle Créatif / Design",
+    title: "Marketing digital",
     services: [
       {
-        title: "Stratégie & conseil",
+        title: "Marketing digital",
         description:
-          "Audit et plan de communication, identité de marque, stratégie de contenu et activation de campagnes 360°.",
-        icon: Target,
-        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png",
-      },
-      {
-        title: "Production de contenus",
-        description:
-          "Visuels et shootings, vidéo et motion design, capsules, interviews, publicités et contenus pour les réseaux.",
-        icon: Video,
+          "Community management, campagnes Meta et Google Ads, e-mailing, reporting et marketing d'influence.",
+        icon: Megaphone,
         image:
-          "https://res.cloudinary.com/dlna2kuo1/video/upload/so_1,f_jpg,q_auto,w_1400/v1754577767/crea_contenu_jpdaqj.jpg",
-      },
-      {
-        title: "Branding & design",
-        description:
-          "Naming et logo, chartes graphiques, outils print et digitaux, design d'expérience utilisateur.",
-        icon: Palette,
-        image:
-          "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
-      },
-      {
-        title: "Événementiel & expérience de marque",
-        description:
-          "Événements corporate et culturels, dispositifs expérientiels, activations terrain et stands.",
-        icon: Calendar,
-        image:
-          "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
-      },
-      {
-        title: "Studio créatif intégré",
-        description:
-          "À Dakar : location photo et vidéo, espace maquillage et audio, tournages, interviews, podcasts et branding.",
-        icon: Building,
-        image:
-          "https://res.cloudinary.com/dlna2kuo1/video/upload/so_1,f_jpg,q_auto,w_1400/v1754577804/studio_unspjq.jpg",
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
       },
     ],
   },
   {
-    title: "Pôle Développement",
+    title: "Développement web",
     services: [
       {
         title: "Développement web & digital",
@@ -97,15 +66,37 @@ const poles: Pole[] = [
     ],
   },
   {
-    title: "Pôle Réseaux sociaux",
+    title: "Marketing classique",
     services: [
       {
-        title: "Marketing digital",
+        title: "Stratégie & conseil",
         description:
-          "Community management, campagnes Meta et Google Ads, e-mailing, reporting et marketing d'influence.",
-        icon: Megaphone,
+          "Audit et plan de communication, identité de marque, stratégie de contenu et activation de campagnes 360°.",
+        icon: Target,
+        image: "https://res.cloudinary.com/dlna2kuo1/image/upload/v1755395902/reunion_photo_extraite_ox2lxk.png",
+      },
+      {
+        title: "Production de contenus",
+        description:
+          "Visuels et shootings, vidéo et motion design, capsules, interviews, publicités et contenus pour les réseaux.",
+        icon: Video,
+        image: "https://res.cloudinary.com/jucpyysy/image/upload/v1791247999/donatela_crea.jpg",
+      },
+      {
+        title: "Branding & design",
+        description:
+          "Naming et logo, chartes graphiques, outils print et digitaux, design d'expérience utilisateur.",
+        icon: Palette,
         image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+          "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
+      },
+      {
+        title: "Événementiel & expérience de marque",
+        description:
+          "Événements corporate et culturels, dispositifs expérientiels, activations terrain et stands.",
+        icon: Calendar,
+        image:
+          "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80",
       },
     ],
   },

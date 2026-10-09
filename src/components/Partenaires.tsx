@@ -20,14 +20,24 @@ export const Partenaires = () => {
           {loop.map((partner, index) => (
             <li key={`${partner.name}-${index}`} className="w-52 shrink-0 md:w-60">
               <div className="flex h-40 flex-col items-center justify-center rounded-[1.75rem] bg-white px-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1">
-                <img
-                  src={partner.src}
-                  alt={partner.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-16 w-full object-contain"
-                />
-                <p className="mt-3 text-center text-xs font-medium text-neutral-600">{partner.name}</p>
+                <div className="flex h-16 w-full items-center justify-center">
+                  {partner.src ? (
+                    <img
+                      src={partner.src}
+                      alt={partner.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="max-h-16 w-full object-contain"
+                    />
+                  ) : (
+                    <p className="text-center text-sm font-semibold leading-tight text-black">{partner.name}</p>
+                  )}
+                </div>
+                {partner.src && (
+                  <p className="mt-3 line-clamp-2 h-8 text-center text-xs font-medium leading-4 text-neutral-600">
+                    {partner.name}
+                  </p>
+                )}
               </div>
             </li>
           ))}
